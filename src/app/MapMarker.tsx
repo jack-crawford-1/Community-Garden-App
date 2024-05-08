@@ -1,15 +1,24 @@
-function MapMarker({ map }: { map: any }) {
-  if (!map) return null
+import React from 'react'
 
-  new google.maps.Marker({
-    position: new google.maps.LatLng(-41.2924, 174.7787),
-    map: map,
-  })
+interface Location {
+  lat: number
+  lng: number
+}
 
-  new google.maps.Marker({
-    position: new google.maps.LatLng(-41.3044, 174.7951),
-    map: map,
-  })
+interface MapMarkerProps {
+  map: google.maps.Map
+  locations: Location[]
+}
+
+function MapMarker({ map, locations }: MapMarkerProps) {
+  React.useEffect(() => {
+    locations.forEach((location) => {
+      new google.maps.Marker({
+        position: new google.maps.LatLng(location.lat, location.lng),
+        map: map,
+      })
+    })
+  }, [map, locations])
 
   return null
 }
