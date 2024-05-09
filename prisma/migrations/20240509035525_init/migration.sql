@@ -1,0 +1,6 @@
+-- CreateTable
+CREATE TABLE "Coords" (
+    "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "lat" TEXT NOT NULL,
+    "lng" TEXT NOT NULL
+);
