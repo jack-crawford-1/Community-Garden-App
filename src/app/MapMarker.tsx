@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect, useState } from 'react'
 
 interface Location {
   lat: number
@@ -10,14 +10,32 @@ interface MapMarkerProps {
   locations: Location[]
 }
 
-function MapMarker({ map, locations }: MapMarkerProps) {
-  React.useEffect(() => {
-    locations.forEach((location) => {
-      new google.maps.Marker({
-        position: new google.maps.LatLng(location.lat, location.lng),
-        map: map,
+const MapMarker = ({ map }: MapMarkerProps) => {
+  const [locations, setLocations] = useState<Location[]>([])
+
+  useEffect(() => {
+    async function fetchCoordinates() {
+      try {
+        const response = await fetch('/api/coordinates')
+        const data = await response.json()
+        setLocations(data)
+      } catch (error) {
+        console.error('Failed to fetch coordinates', error)
+      }
+    }
+
+    fetchCoordinates()
+  }, [])
+
+  useEffect(() => {
+    if (map && locations.length > 0) {
+      locations.forEach((location) => {
+        new google.maps.Marker({
+          position: new google.maps.LatLng(location.lat, location.lng),
+          map: map,
+        })
       })
-    })
+    }
   }, [map, locations])
 
   return null
