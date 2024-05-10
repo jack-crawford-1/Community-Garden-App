@@ -14,6 +14,7 @@ interface MapMarkerProps {
 const MapMarker = ({ map }: MapMarkerProps) => {
   const [locations, setLocations] = useState<Location[]>([])
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const infoWindow = new google.maps.InfoWindow()
 
   useEffect(() => {
@@ -44,10 +45,7 @@ const MapMarker = ({ map }: MapMarkerProps) => {
             <button class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg text-md m-5 px-5 py-2.5 text-center" onclick="window.location.href='${location.link}'">More Info</button>
           </div>`
           infoWindow.setContent(contentString)
-          infoWindow.open({
-            anchor: marker,
-            map,
-          })
+          infoWindow.open(map, marker)
         })
       })
     }
