@@ -1,6 +1,11 @@
--- CreateTable
+DROP TABLE IF EXISTS "Coords";
 CREATE TABLE "Coords" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "lat" TEXT NOT NULL,
-    "lng" TEXT NOT NULL
+    "lng" TEXT NOT NULL,
+    "address" TEXT NOT NULL,
+    "description" TEXT NOT NULL,
+    "addedByUserId" TEXT NOT NULL,
+    "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );

@@ -15,4 +15,10 @@ model Coords {
   id        Int     @id @default(autoincrement())
   lat     String
   lng   String
+  address String
+  description String
+  addedByUserId String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
 }
