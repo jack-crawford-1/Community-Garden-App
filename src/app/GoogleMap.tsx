@@ -3,7 +3,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 import MapMarker from './MapMarker'
-import { coordinates } from './coordinates'
+import coordinates from '../../pages/api/coordinates'
 
 const DEFAULT_CENTER = { lat: -41.293738, lng: 174.7783656665847 }
 const DEFAULT_ZOOM = 13

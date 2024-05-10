@@ -7,7 +7,6 @@ interface Location {
 
 interface MapMarkerProps {
   map: google.maps.Map
-  locations: Location[]
 }
 
 const MapMarker = ({ map }: MapMarkerProps) => {
@@ -42,19 +41,3 @@ const MapMarker = ({ map }: MapMarkerProps) => {
 }
 
 export default MapMarker
-
-// function onMapClick(e: { latlng: google.maps.LatLng }) {
-//   const latlng = e.latlng as google.maps.LatLng
-//   const content = `<button id="go-to-page">Add New Site</button>`
-//   const infowindow = new google.maps.InfoWindow({ content })
-
-//   setTimeout(() => {
-//     const goToPageButton = document.getElementById('go-to-page')
-
-//     if (goToPageButton) {
-//       goToPageButton.addEventListener('click', () => {
-//         navigate(`/addsite/?lat=${latlng.lat}&lng=${latlng.lng}`)
-//       })
-//     }
-//   }, 0)
-// }
