@@ -5,6 +5,7 @@ import { useRouter } from 'next/router'
 
 function AddSiteForm() {
   const router = useRouter()
+  const { lat, lng } = router.query
 
   return (
     <div className="">
@@ -22,6 +23,8 @@ function AddSiteForm() {
           <input
             type="text"
             name="siteName"
+            value={lat || ''}
+            readOnly
             className="bg-gray-100 h-10 shadow-xl ml-10 m-2 border-2 border-gray-400 rounded-lg w-64"
           />
         </label>
@@ -30,6 +33,8 @@ function AddSiteForm() {
           <input
             type="text"
             name="siteName"
+            value={lng || ''}
+            readOnly
             className="bg-gray-100 h-10 shadow-xl ml-10 m-2 border-2 border-gray-400 rounded-lg w-64"
           />
         </label>

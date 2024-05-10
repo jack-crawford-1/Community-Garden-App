@@ -24,13 +24,14 @@ export const GoogleMaps = () => {
 
   map?.addListener('click', (e: google.maps.MapMouseEvent) => {
     const latLng = e.latLng.toJSON()
-    console.log('You clicked on:', latLng.lat, latLng.lng)
-    // window.location.href = './form'
     const infoWindow = new google.maps.InfoWindow({
-      position: (ref.current && map?.getCenter()) || DEFAULT_CENTER,
+      position: latLng || DEFAULT_CENTER,
     })
-    infoWindow.setContent(JSON.stringify(map?.getCenter()?.toJSON(), null, 2))
-    map && infoWindow.open(map)
+
+    infoWindow.open(map)
+    infoWindow.setContent(
+      `<button onclick="location.href='./form?lat=${latLng.lat}&lng=${latLng.lng}'">Add garden at this location</button>`
+    )
   })
 
   return (
@@ -41,9 +42,3 @@ export const GoogleMaps = () => {
 }
 
 export default GoogleMaps
-
-// map?.addListener('click', (e: { latLng: google.maps.LatLng }) => {
-//   const latLng = e.latLng.toJSON()
-//   console.log('You clicked on:', latLng.lat, latLng.lng)
-//   window.location.href = './form'
-// })
