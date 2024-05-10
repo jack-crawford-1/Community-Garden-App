@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import MapMarker from './MapMarker'
-import coordinates from '../../pages/api/coordinates'
 
 const DEFAULT_CENTER = { lat: -41.293738, lng: 174.7783656665847 }
 const DEFAULT_ZOOM = 15
@@ -45,13 +44,7 @@ export const GoogleMaps = () => {
         ref={ref}
         className="w-11/12 h-5/6 rounded-3xl border-4 border-gray-200 shadow-md"
       >
-        {map && (
-          <MapMarker
-            map={map}
-            coordinates={coordinates}
-            infoWindow={infoWindow}
-          />
-        )}
+        {map && <MapMarker map={map} />}
       </div>
     </div>
   )

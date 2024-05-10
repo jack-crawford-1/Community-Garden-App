@@ -9,7 +9,6 @@ interface Location {
 
 interface MapMarkerProps {
   map: google.maps.Map
-  coordinates: Location
 }
 
 const MapMarker = ({ map }: MapMarkerProps) => {
