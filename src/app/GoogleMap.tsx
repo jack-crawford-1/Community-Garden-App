@@ -2,9 +2,17 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import MapMarker from './MapMarker'
+interface MapOptions {
+  center: google.maps.LatLngLiteral
+  zoom: number
+  minZoom: number
+  maxZoom: number
+  mapId: string
+}
 
 const DEFAULT_CENTER = { lat: -41.293738, lng: 174.7783656665847 }
 const DEFAULT_ZOOM = 15
+const mapId = 'fb0b50db61587e93'
 
 export const GoogleMaps = () => {
   const ref = useRef<HTMLDivElement | null>(null)
@@ -18,7 +26,10 @@ export const GoogleMaps = () => {
       const newMap = new window.google.maps.Map(ref.current, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
-      })
+        minZoom: 5,
+        maxZoom: 20,
+        mapId: mapId,
+      } as MapOptions)
       const newInfoWindow = new google.maps.InfoWindow()
       setMap(newMap)
       setInfoWindow(newInfoWindow)
