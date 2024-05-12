@@ -31,13 +31,14 @@ export default function LocationsPage({
       {coordinates.map((coord) => (
         <div
           key={coord.id}
-          className="bg-blue-500 text-gray-200 border-4 rounded-xl border-blue-700 max-h-96 max-w-96 p-5 m-4 text-xl"
+          className="bg-blue-100 text-blue-700 border-4 rounded-xl border-blue-700 w-screen md:w-1/3 p-5 m-4 text-xl"
         >
-          <div> Latitude: {coord.lat}</div>
-          <div>Longitude: {coord.lng}</div>
-          <div>{coord.address}</div>
-          <div>{coord.description}</div>
-          <div>Added By: {coord.addedByUserId}</div>
+          <div className="font-bold text-2xl">{coord.address}</div>
+          <div className="italic text-lg">
+            Lat: {coord.lat} / Lng: {coord.lng}
+          </div>
+          <div className="text-lg">Added by: {coord.addedByUserId}</div>
+          <div className="text-2xl">{coord.description}</div>
         </div>
       ))}
     </div>

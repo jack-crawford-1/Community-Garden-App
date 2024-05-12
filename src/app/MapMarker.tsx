@@ -40,9 +40,9 @@ const MapMarker = ({ map }: MapMarkerProps) => {
         })
 
         marker.addListener('click', () => {
-          const contentString = `<div class="p-4 max-w-sm text-2xl text-gray-700 bg-white rounded-lg border border-gray-200 shadow-md">
+          const contentString = `<div class="p-3 m-0 max-w-sm text-2xl text-gray-700   shadow-md">
             <p class="mb-2">${location.description}</p>
-            <button class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg text-md m-5 px-5 py-2.5 text-center" onclick="window.location.href='/locations'">More Info</button>
+            <button class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg text-md m-0 px-5 py-2.5 text-center" onclick="window.location.href='/locations'">More Info</button>
           </div>`
           infoWindow.setContent(contentString)
           infoWindow.open(map, marker)

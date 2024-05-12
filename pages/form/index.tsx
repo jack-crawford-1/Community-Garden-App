@@ -9,6 +9,7 @@ function AddSiteForm() {
   const [address, setAddress] = useState('')
   const [description, setDescription] = useState('')
   const [addedByUserId, setAddedByUserId] = useState('')
+  const [message, setMessage] = useState('')
 
   useEffect(() => {
     if (lat && lng) {
@@ -42,14 +43,13 @@ function AddSiteForm() {
       },
       body: JSON.stringify(payload),
     })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok')
-        }
-        return response.json()
-      })
-      .then((data) => {
-        console.log('Success:', data)
+      .then(() => {
+        setAddress('')
+        setDescription('')
+        setAddedByUserId('')
+        setMessage('Location added successfully')
+        setTimeout(() => setMessage(''), 3000)
+        router.push('/locations?added=true')
       })
       .catch((error) => {
         console.error('Error:', error)
@@ -57,10 +57,13 @@ function AddSiteForm() {
   }
 
   return (
-    <div className="">
+    <div>
+      {message && (
+        <div className="absolute top-0 right-0 p-3 bg-green-300">{message}</div>
+      )}
       <form
         onSubmit={handleSubmit}
-        className=" flex flex-col h-screen bg-white p-10  justify-center border-2 border-red-300"
+        className="flex flex-col h-screen bg-white p-10 justify-center border-2 border-red-300"
       >
         <label className="m-2 text-2xl tracking-wide">
           Site Address:
