@@ -7,6 +7,8 @@ function AddSiteForm() {
   const router = useRouter()
   const { lat, lng } = router.query
   const [address, setAddress] = useState('')
+  const [description, setDescription] = useState('')
+  const [addedByUserId, setAddedByUserId] = useState('')
 
   useEffect(() => {
     if (lat && lng) {
@@ -23,9 +25,43 @@ function AddSiteForm() {
     }
   }, [lat, lng])
 
+  const handleSubmit = async (event: { preventDefault: () => void }) => {
+    event.preventDefault()
+    const payload = {
+      lat,
+      lng,
+      address,
+      description,
+      addedByUserId,
+    }
+
+    fetch('/api/addLocation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok')
+        }
+        return response.json()
+      })
+      .then((data) => {
+        console.log('Success:', data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  }
+
   return (
     <div className="">
-      <form className=" flex flex-col h-screen bg-white p-10  justify-center border-2 border-red-300">
+      <form
+        onSubmit={handleSubmit}
+        className=" flex flex-col h-screen bg-white p-10  justify-center border-2 border-red-300"
+      >
         <label className="m-2 text-2xl tracking-wide">
           Site Address:
           <input
@@ -57,14 +93,23 @@ function AddSiteForm() {
           />
         </label>
         <label className="m-2 text-2xl tracking-wide">
+          Added By User ID:
+          <input
+            type="text"
+            name="addedByUserId"
+            className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg w-1/4 text-lg"
+            onChange={(e) => setAddedByUserId(e.target.value)}
+          />
+        </label>
+        <label className="m-2 text-2xl tracking-wide">
           Site Description:
           <input
             type="textbox"
             name="siteDescription"
             className="bg-gray-100 h-40 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg w-1/2"
+            onChange={(e) => setDescription(e.target.value)}
           />
         </label>
-
         <input
           type="submit"
           value="Submit"
