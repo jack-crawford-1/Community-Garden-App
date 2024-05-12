@@ -1,6 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react'
-import '/src/app/globals.css'
+import '../../src/app/styles/globals.css'
 import { useRouter } from 'next/router'
 
 function AddSiteForm() {

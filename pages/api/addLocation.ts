@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next'
-import prisma from '../../src/app/prisma'
+import prisma from '../../src/app/components/prismaClient/prisma'
 
 export default async function addLocation(
   req: NextApiRequest,

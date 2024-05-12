@@ -1,8 +1,8 @@
 'use client'
 
 import React, { useEffect, useRef, useState } from 'react'
-import MapMarker from './MapMarker'
-import { useMapTextOverlay } from './MapTextOverlay'
+import MapMarker from '../overlays/MapMarker'
+import { useMapTextOverlay } from '../overlays/MapTextOverlay'
 
 interface MapOptions {
   center: google.maps.LatLngLiteral
@@ -13,7 +13,7 @@ interface MapOptions {
 }
 
 const DEFAULT_CENTER = { lat: -41.293738, lng: 174.7783656665847 }
-const DEFAULT_ZOOM = 15
+const DEFAULT_ZOOM = 13
 const mapId = 'fb0b50db61587e93'
 
 export const GoogleMaps = () => {

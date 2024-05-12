@@ -1,5 +1,5 @@
-import prisma from '../../src/app/prisma'
-import '../../src/app/globals.css'
+import prisma from '../../src/app/components/prismaClient/prisma'
+import '../../src/app/styles.globals.css'
 
 interface Coords {
   id: number
