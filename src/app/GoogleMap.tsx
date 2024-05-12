@@ -2,6 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react'
 import MapMarker from './MapMarker'
+import { useMapTextOverlay } from './MapTextOverlay'
+
 interface MapOptions {
   center: google.maps.LatLngLiteral
   zoom: number
@@ -49,11 +51,13 @@ export const GoogleMaps = () => {
     }
   }, [map, infoWindow])
 
+  useMapTextOverlay(map)
+
   return (
     <div className="flex justify-center items-center w-full h-screen">
       <div
         ref={ref}
-        className="w-11/12 h-5/6 rounded-3xl border-4 border-gray-200 shadow-md"
+        className="w-screen h-screen rounded-3xl border-4 border-gray-200 shadow-md"
       >
         {map && <MapMarker map={map} />}
       </div>
