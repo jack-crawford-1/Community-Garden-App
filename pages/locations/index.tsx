@@ -1,4 +1,4 @@
-import { PrismaClient } from '@prisma/client'
+import prisma from '../../src/app/prisma'
 import '../../src/app/globals.css'
 
 interface Coords {
@@ -11,7 +11,6 @@ interface Coords {
 }
 
 export async function getServerSideProps() {
-  const prisma = new PrismaClient()
   const coordinates = await prisma.coords.findMany()
   await prisma.$disconnect()
 

@@ -1,7 +1,10 @@
-import { PrismaClient } from '@prisma/client'
-const prisma = new PrismaClient()
+import { NextApiRequest, NextApiResponse } from 'next'
+import prisma from '../../src/app/prisma'
 
-export default async function addLocation(req, res) {
+export default async function addLocation(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method === 'POST') {
     const { lat, lng, address, description, addedByUserId } = req.body
 
@@ -19,7 +22,7 @@ export default async function addLocation(req, res) {
       res.status(200).json(result)
     } catch (error) {
       console.error('Error adding location:', error)
-      res.status(500).json({ error: error.message })
+      res.status(500).json({ error: error })
     }
   } else {
     res.setHeader('Allow', ['POST'])
