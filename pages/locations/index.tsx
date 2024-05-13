@@ -56,6 +56,37 @@ export default function LocationsPage({
     }
   }
 
+  const handleEdit = async (id: number) => {
+    const newAddress = prompt('Enter a new address:')
+    const newDescription = prompt('Enter a new description:')
+
+    if (newAddress && newDescription) {
+      try {
+        const response = await fetch('/api/editLocation', {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            id,
+            address: newAddress,
+            description: newDescription,
+          }),
+        })
+
+        if (response.ok) {
+          alert('Location updated successfully')
+          router.reload()
+        } else {
+          throw new Error('Failed to update the location')
+        }
+      } catch (error) {
+        console.error('Error:', error)
+        alert('Error updating location')
+      }
+    }
+  }
+
   return (
     <div className="flex flex-row flex-wrap w-90vw h-90vh m-10 justify-center">
       {coordinates.map((coord) => (
@@ -73,7 +104,7 @@ export default function LocationsPage({
             <button onClick={() => handleDelete(coord.id)}>Delete</button>
           </div>
           <div>
-            <button>Edit</button>
+            <button onClick={() => handleEdit(coord.id)}>Edit</button>
           </div>
         </div>
       ))}
