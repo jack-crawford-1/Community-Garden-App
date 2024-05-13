@@ -31,12 +31,11 @@ const MapMarker = ({ map }: MapMarkerProps) => {
     fetchCoordinates()
   }, [])
 
-  const icon = {
-    url: '/leaf1.png',
-    scaledSize: new google.maps.Size(40, 40),
-  }
-
   useEffect(() => {
+    const icon = {
+      url: '/leaf.png',
+      scaledSize: new google.maps.Size(40, 40),
+    }
     if (map && locations.length > 0) {
       locations.forEach((location) => {
         const marker = new google.maps.Marker({
