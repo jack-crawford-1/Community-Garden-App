@@ -1,6 +1,7 @@
 import { useRouter } from 'next/router'
 import prisma from '../../src/app/components/prismaClient/prisma'
 import '../../src/app/styles/globals.css'
+import Link from 'next/link'
 
 interface Coords {
   id: number
@@ -92,19 +93,33 @@ export default function LocationsPage({
       {coordinates.map((coord) => (
         <div
           key={coord.id}
-          className="bg-blue-100 text-blue-700 border-4 rounded-xl border-blue-700 w-screen md:w-1/3 p-5 m-4 text-xl"
+          className="bg-gray-300 opacity-90 text-blue-600 border-4 rounded-xl border-blue-700 w-screen md:w-1/3 p-5 m-4 text-xl"
         >
-          <div className="font-bold text-2xl">{coord.address}</div>
+          <Link href={`/locations/${coord.id}`}>
+            <div className="font-bold text-2xl mb-4 hover:text-blue-900">
+              {coord.address}
+            </div>
+          </Link>
           <div className="italic text-lg">
             Lat: {coord.lat} / Lng: {coord.lng}
           </div>
           <div className="text-lg">Added by: {coord.addedByUserId}</div>
-          <div className="text-2xl">{coord.description}</div>
+          <div className="text-2xl m-3">{coord.description}</div>
           <div>
-            <button onClick={() => handleDelete(coord.id)}>Delete</button>
+            <button
+              className="bg-red-300  p-3 border-2 border-red-700 rounded-2xl w-1/3 m-2 text-xl hover:bg-red-500"
+              onClick={() => handleDelete(coord.id)}
+            >
+              Delete
+            </button>
           </div>
           <div>
-            <button onClick={() => handleEdit(coord.id)}>Edit</button>
+            <button
+              className="bg-green-300 p-3 border-2 border-green-700 rounded-2xl w-1/3 m-2 text-xl hover:bg-green-500"
+              onClick={() => handleEdit(coord.id)}
+            >
+              Edit
+            </button>
           </div>
         </div>
       ))}
