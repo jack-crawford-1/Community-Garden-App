@@ -88,41 +88,53 @@ export default function LocationsPage({
     }
   }
 
+  const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
+
   return (
-    <div className="flex flex-row flex-wrap w-90vw h-90vh m-10 justify-center">
-      {coordinates.map((coord) => (
-        <div
-          key={coord.id}
-          className="bg-gray-300 opacity-90 text-blue-600 border-4 rounded-xl border-blue-700 w-screen md:w-1/3 p-5 m-4 text-xl"
-        >
-          <Link href={`/locations/${coord.id}`}>
-            <div className="font-bold text-2xl mb-4 hover:text-blue-900">
-              {coord.address}
+    <div className="flex flex-col items-center justify-center h-fit bg-gray-100 p-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 w-full max-w-6xl">
+        {coordinates.map((coord) => (
+          <div key={coord.id} className="bg-white shadow-lg rounded-lg">
+            <iframe
+              width="100%"
+              height="200"
+              loading="lazy"
+              allowFullScreen={false}
+              src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${coord.lat},${coord.lng}&zoom=18&maptype=satellite`}
+            ></iframe>
+            <div className="p-10">
+              <Link href={`/locations/${coord.id}`}>
+                <div className="font-bold text-3xl mb-2 block hover:text-blue-800">
+                  {coord.address}
+                </div>
+              </Link>
+              <p className="text-xl mt-5 mb-7">{coord.description}</p>
+              <div className="text-lg">
+                <span>
+                  Lat: {coord.lat} / Lng: {coord.lng}
+                </span>
+                <br />
+                <span>Added by: {coord.addedByUserId}</span>
+              </div>
+
+              <div className="flex justify-center m-5">
+                <button
+                  className=" text-sm bg-red-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => handleDelete(coord.id)}
+                >
+                  Delete
+                </button>
+                <button
+                  className="text-sm bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+                  onClick={() => handleEdit(coord.id)}
+                >
+                  Edit
+                </button>
+              </div>
             </div>
-          </Link>
-          <div className="italic text-lg">
-            Lat: {coord.lat} / Lng: {coord.lng}
           </div>
-          <div className="text-lg">Added by: {coord.addedByUserId}</div>
-          <div className="text-2xl m-3">{coord.description}</div>
-          <div>
-            <button
-              className="bg-red-300  p-3 border-2 border-red-700 rounded-2xl w-1/3 m-2 text-xl hover:bg-red-500"
-              onClick={() => handleDelete(coord.id)}
-            >
-              Delete
-            </button>
-          </div>
-          <div>
-            <button
-              className="bg-green-300 p-3 border-2 border-green-700 rounded-2xl w-1/3 m-2 text-xl hover:bg-green-500"
-              onClick={() => handleEdit(coord.id)}
-            >
-              Edit
-            </button>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   )
 }
