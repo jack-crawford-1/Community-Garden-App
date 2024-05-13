@@ -8,7 +8,6 @@ export default async function addLocation(
   if (req.method === 'POST') {
     const { lat, lng, address, description, addedByUserId } = req.body
 
-    console.log(req.body)
     try {
       const result = await prisma.coords.create({
         data: {

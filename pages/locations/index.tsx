@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router'
 import prisma from '../../src/app/components/prismaClient/prisma'
 import '../../src/app/styles/globals.css'
 
@@ -26,6 +27,35 @@ export default function LocationsPage({
 }: {
   coordinates: Coords[]
 }) {
+  const router = useRouter()
+
+  const handleDelete = async (id: number) => {
+    const confirmation = confirm(
+      'Are you sure you want to delete this location?'
+    )
+    if (confirmation) {
+      try {
+        const response = await fetch('/api/deleteLocation', {
+          method: 'DELETE',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id }),
+        })
+
+        if (response.ok) {
+          alert('Location deleted successfully')
+          router.reload()
+        } else {
+          throw new Error('Failed to delete the location')
+        }
+      } catch (error) {
+        console.error('Error:', error)
+        alert('Error deleting location')
+      }
+    }
+  }
+
   return (
     <div className="flex flex-row flex-wrap w-90vw h-90vh m-10 justify-center">
       {coordinates.map((coord) => (
@@ -39,6 +69,12 @@ export default function LocationsPage({
           </div>
           <div className="text-lg">Added by: {coord.addedByUserId}</div>
           <div className="text-2xl">{coord.description}</div>
+          <div>
+            <button onClick={() => handleDelete(coord.id)}>Delete</button>
+          </div>
+          <div>
+            <button>Edit</button>
+          </div>
         </div>
       ))}
     </div>
