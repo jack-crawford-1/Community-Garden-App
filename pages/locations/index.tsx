@@ -2,7 +2,6 @@ import { useRouter } from 'next/router'
 import prisma from '../../src/app/components/prismaClient/prisma'
 import '../../src/app/styles/globals.css'
 import Link from 'next/link'
-
 interface Coords {
   id: number
   lat: string
@@ -11,25 +10,21 @@ interface Coords {
   description: string
   addedByUserId: number
 }
-
 export async function getServerSideProps() {
   const coordinates = await prisma.coords.findMany()
   await prisma.$disconnect()
-
   return {
     props: {
       coordinates: JSON.parse(JSON.stringify(coordinates)),
     },
   }
 }
-
 export default function LocationsPage({
   coordinates,
 }: {
   coordinates: Coords[]
 }) {
   const router = useRouter()
-
   const handleDelete = async (id: number) => {
     const confirmation = confirm(
       'Are you sure you want to delete this location?'
@@ -43,7 +38,6 @@ export default function LocationsPage({
           },
           body: JSON.stringify({ id }),
         })
-
         if (response.ok) {
           alert('Location deleted successfully')
           router.reload()
@@ -56,11 +50,9 @@ export default function LocationsPage({
       }
     }
   }
-
   const handleEdit = async (id: number) => {
     const newAddress = prompt('Enter a new address:')
     const newDescription = prompt('Enter a new description:')
-
     if (newAddress && newDescription) {
       try {
         const response = await fetch('/api/editLocation', {
@@ -74,7 +66,6 @@ export default function LocationsPage({
             description: newDescription,
           }),
         })
-
         if (response.ok) {
           alert('Location updated successfully')
           router.reload()
@@ -87,54 +78,52 @@ export default function LocationsPage({
       }
     }
   }
-
   const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
 
   return (
-    <div className="flex flex-col items-center justify-center h-fit bg-gray-100 p-10">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-5 w-full max-w-6xl">
-        {coordinates.map((coord) => (
-          <div key={coord.id} className="bg-white shadow-lg rounded-lg">
+    <div className="bg-gray-100 min-h-screen flex flex-col items-center p-10">
+      {coordinates.map((location) => (
+        <div
+          key={location.id}
+          className="flex flex-col md:flex-row items-center justify-center bg-white shadow-md rounded-lg p-6 mb-6 w-3/4 p-10 md:min-h-96"
+        >
+          <div className="text-left md:w-1/2 md:ml-10">
+            <Link href={`/locations/${location.id}`}>
+              <h1 className="text-2xl font-bold">{location.address}</h1>
+            </Link>
+            <p className="text-lg mt-2">{location.description}</p>
+            <div className="text-md mt-2 mb-4">
+              <span>
+                Lat: {location.lat}, Lng: {location.lng}
+              </span>
+              <br />
+              <span>Added by: {location.addedByUserId}</span>
+            </div>
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded mr-2"
+              onClick={() => handleDelete(location.id)}
+            >
+              Delete
+            </button>
+            <button
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+              onClick={() => handleEdit(location.id)}
+            >
+              Edit
+            </button>
+          </div>
+          <div className="w-full md:w-1/2 h-72">
             <iframe
               width="100%"
-              height="200"
+              height="100%"
+              style={{ border: 0, borderRadius: '0.5rem' }}
               loading="lazy"
               allowFullScreen={false}
-              src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${coord.lat},${coord.lng}&zoom=18&maptype=satellite`}
+              src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${location.lat},${location.lng}&zoom=18&maptype=roadmap`}
             ></iframe>
-            <div className="p-10">
-              <Link href={`/locations/${coord.id}`}>
-                <div className="font-bold text-3xl mb-2 block hover:text-blue-800">
-                  {coord.address}
-                </div>
-              </Link>
-              <p className="text-xl mt-5 mb-7">{coord.description}</p>
-              <div className="text-lg">
-                <span>
-                  Lat: {coord.lat} / Lng: {coord.lng}
-                </span>
-                <br />
-                <span>Added by: {coord.addedByUserId}</span>
-              </div>
-
-              <div className="flex justify-center m-5">
-                <button
-                  className=" text-sm bg-red-300 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => handleDelete(coord.id)}
-                >
-                  Delete
-                </button>
-                <button
-                  className="text-sm bg-blue-300 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-                  onClick={() => handleEdit(coord.id)}
-                >
-                  Edit
-                </button>
-              </div>
-            </div>
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
     </div>
   )
 }

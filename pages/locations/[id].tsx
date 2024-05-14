@@ -2,6 +2,7 @@
 
 import '../../src/app/styles/globals.css'
 import prisma from '../../src/app/components/prismaClient/prisma'
+import Link from 'next/link'
 
 interface Coords {
   id: number
@@ -53,6 +54,9 @@ export default function LocationPage({ location }: { location: Coords }) {
             </span>
             <br />
             <span>Added by: {location.addedByUserId}</span>
+          </div>
+          <div className="text-lg hover:text-blue-500">
+            <Link href={`/locations`}>See All Locations</Link>
           </div>
         </div>
         <div className="w-full md:w-1/2 h-96">
