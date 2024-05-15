@@ -45,31 +45,28 @@ export default function LocationPage({ location }: { location: Coords }) {
   const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
 
   return (
-    <div className="flex justify-center items-center h-screen bg-gray-100">
-      <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12 p-5 bg-white rounded-lg w-2/3">
-        <div className="text-center max-w-md">
-          <h1 className="text-4xl font-bold">{location.address}</h1>
-          <p className="text-lg my-2">{location.description}</p>
-          <div className="text-md mt-2 mb-4">
-            <span>
-              Lat: {location.lat}, Lng: {location.lng}
-            </span>
-            <br />
-            <span>Added by: {location.addedByUserId}</span>
-          </div>
-          <div className="text-lg hover:text-blue-500">
-            <Link href={`/locations`}>See All Locations</Link>
-          </div>
-          <div>
-            <Image
-              src={location.imageUrl}
-              alt={'imageurl'}
-              width={300}
-              height={300}
-            />
+    <>
+      <div className="flex flex-col justify-center items-center bg-gray-100">
+        <div className="flex flex-col items-center">
+          <h1 className="text-4xl m-10 font-bold">{location.address}</h1>
+          <div className="m-3">Added by User ID: {location.addedByUserId}</div>
+          <div className="text-lg w-5/6 leading-7 m-2">
+            {location.description}
           </div>
         </div>
-        <div className="w-full md:w-1/2 h-96">
+
+        <div className="border-4 border-gray-400 rounded-xl m-5">
+          <Image
+            src={location.imageUrl}
+            alt={'imageurl'}
+            width={400}
+            height={400}
+          />
+        </div>
+        <div className="m-1">Latitude: {location.lat},</div>
+        <div className="mb-10">Longitude: {location.lng}</div>
+
+        <div className="w-4/5 m-1 border-2 border-gray-400 rounded-xl h-64">
           <iframe
             width="100%"
             height="100%"
@@ -80,6 +77,10 @@ export default function LocationPage({ location }: { location: Coords }) {
           ></iframe>
         </div>
       </div>
-    </div>
+
+      <div className="text-lg hover:text-blue-500 m-10">
+        <Link href={`/locations`}>See All Locations</Link>
+      </div>
+    </>
   )
 }

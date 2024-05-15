@@ -6,7 +6,7 @@ export default async function editLocation(
   res: NextApiResponse
 ) {
   if (req.method === 'PUT') {
-    const { id, lat, lng, address, description } = req.body
+    const { id, lat, lng, address, description, imageUrl } = req.body
 
     try {
       await prisma.coords.update({
@@ -16,6 +16,7 @@ export default async function editLocation(
           lng,
           address,
           description,
+          imageUrl,
         },
       })
       res.status(200).json({ message: 'Location updated successfully' })
