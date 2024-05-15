@@ -1,5 +1,6 @@
 -- RedefineTables
 PRAGMA foreign_keys=OFF;
+
 CREATE TABLE "new_Coords" (
     "id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "lat" TEXT NOT NULL,
@@ -7,11 +8,21 @@ CREATE TABLE "new_Coords" (
     "address" TEXT NOT NULL,
     "description" TEXT NOT NULL,
     "addedByUserId" TEXT NOT NULL,
+    "imageUrl" TEXT DEFAULT '',
     "createdAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "updatedAt" DATETIME NOT NULL
+    "updatedAt" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
-INSERT INTO "new_Coords" ("addedByUserId", "address", "createdAt", "description", "id", "lat", "lng", "updatedAt") SELECT "addedByUserId", "address", "createdAt", "description", "id", "lat", "lng", "updatedAt" FROM "Coords";
+
+INSERT INTO "new_Coords" (
+    "addedByUserId", "address", "createdAt", "description", "id", "lat", "lng", "updatedAt"
+) SELECT 
+    "addedByUserId", "address", "createdAt", "description", "id", "lat", "lng", "updatedAt" 
+FROM 
+    "Coords";
+
 DROP TABLE "Coords";
+
 ALTER TABLE "new_Coords" RENAME TO "Coords";
+
 PRAGMA foreign_key_check;
 PRAGMA foreign_keys=ON;

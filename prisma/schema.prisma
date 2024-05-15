@@ -18,6 +18,7 @@ model Coords {
   address String
   description String
   addedByUserId String
+  imageUrl String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
