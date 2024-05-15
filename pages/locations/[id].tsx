@@ -3,6 +3,7 @@
 import '../../src/app/styles/globals.css'
 import prisma from '../../src/app/components/prismaClient/prisma'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface Coords {
   id: number
@@ -10,6 +11,7 @@ interface Coords {
   lng: string
   address: string
   description: string
+  imageUrl: string
   addedByUserId: number
   mapId: string
 }
@@ -57,6 +59,14 @@ export default function LocationPage({ location }: { location: Coords }) {
           </div>
           <div className="text-lg hover:text-blue-500">
             <Link href={`/locations`}>See All Locations</Link>
+          </div>
+          <div>
+            <Image
+              src={location.imageUrl}
+              alt={'imageurl'}
+              width={300}
+              height={300}
+            />
           </div>
         </div>
         <div className="w-full md:w-1/2 h-96">
