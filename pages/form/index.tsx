@@ -9,6 +9,7 @@ function AddSiteForm() {
   const [address, setAddress] = useState('')
   const [description, setDescription] = useState('')
   const [addedByUserId, setAddedByUserId] = useState('')
+  const [file, setFile] = useState(null)
   const [message, setMessage] = useState('')
 
   useEffect(() => {
@@ -26,6 +27,10 @@ function AddSiteForm() {
     }
   }, [lat, lng])
 
+  const handleFileChange = (e) => {
+    setFile(e.target.files[0])
+  }
+
   const handleSubmit = async (event: { preventDefault: () => void }) => {
     event.preventDefault()
     const payload = {
@@ -34,6 +39,7 @@ function AddSiteForm() {
       address,
       description,
       addedByUserId,
+      file,
     }
 
     fetch('/api/addLocation', {
@@ -47,6 +53,7 @@ function AddSiteForm() {
         setAddress('')
         setDescription('')
         setAddedByUserId('')
+        setFile(null)
         setMessage('Location added successfully')
         setTimeout(() => setMessage(''), 3000)
         router.push('/locations?added=true')
@@ -57,69 +64,85 @@ function AddSiteForm() {
   }
 
   return (
-    <div>
-      {message && (
-        <div className="absolute top-0 right-0 p-3 bg-green-300">{message}</div>
-      )}
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col h-screen bg-white p-10 justify-center border-2 border-red-300"
-      >
-        <label className="m-2 text-2xl tracking-wide">
-          Site Address:
+    <>
+      <div>
+        {message && (
+          <div className="absolute top-0 right-0 p-10 bg-green-300">
+            {message}
+          </div>
+        )}
+
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col h-screen bg-white p-10 justify-center border-2 border-red-300"
+        >
+          <label className="m-2 text-2xl tracking-wide">
+            Site Address:
+            <input
+              type="text"
+              name="siteAddress"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              className="bg-gray-100 h-10 shadow-xl m-2 ml-10 border-2 border-gray-400 rounded-lg p-3 md:w-1/2 w-full text-lg min-h-20"
+            />
+          </label>
+          <label className="m-2 text-2xl tracking-wide">
+            Latitude:
+            <input
+              type="text"
+              name="siteName"
+              value={lat || ''}
+              readOnly
+              className="bg-gray-100 h-10 shadow-xl ml-10 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full p-3 text-lg min-h-20"
+            />
+          </label>
+          <label className="m-2 text-2xl tracking-wide">
+            Longtitude:
+            <input
+              type="text"
+              name="siteName"
+              value={lng || ''}
+              readOnly
+              className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full text-lg min-h-20"
+            />
+          </label>
+          <label className="m-2 text-2xl tracking-wide">
+            Added By User ID:
+            <input
+              type="text"
+              name="addedByUserId"
+              placeholder="Will be auto-generated in future"
+              className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full text-lg min-h-20"
+              onChange={(e) => setAddedByUserId(e.target.value)}
+            />
+          </label>
+          <label className="m-2 text-2xl tracking-wide">
+            Site Description:
+            <input
+              type="textbox"
+              name="siteDescription"
+              placeholder="Add a description of the site here..."
+              className="bg-gray-100 h-40 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full "
+              onChange={(e) => setDescription(e.target.value)}
+            />
+          </label>
+          <label className="m-2 text-2xl w-full min-h-20">
+            Upload Image:
+            <input
+              type="file"
+              name="file"
+              onChange={handleFileChange}
+              className="bg-gray-100 h-10 shadow-xl m-10 p-3 border-2 border-gray-400 rounded-lg md:w-1/2 w-full min-h-20"
+            />
+          </label>
           <input
-            type="text"
-            name="siteAddress"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            className="bg-gray-100 h-10 shadow-xl m-2 ml-10 border-2 border-gray-400 rounded-lg p-3 w-1/2 text-lg"
+            type="submit"
+            value="Submit"
+            className="bg-gray-100 w-64 shadow-xl m-2 border-2 border-gray-400 rounded-lg text-xl h-fit min-h-20 mt-10 hover:bg-gray-200 hover:border-blue-500"
           />
-        </label>
-        <label className="m-2 text-2xl tracking-wide">
-          Latitude:
-          <input
-            type="text"
-            name="siteName"
-            value={lat || ''}
-            readOnly
-            className="bg-gray-100 h-10 shadow-xl ml-10 m-2 border-2 border-gray-400 rounded-lg w-1/4 p-3 text-lg"
-          />
-        </label>
-        <label className="m-2 text-2xl tracking-wide">
-          Longtitude:
-          <input
-            type="text"
-            name="siteName"
-            value={lng || ''}
-            readOnly
-            className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg w-1/4 text-lg"
-          />
-        </label>
-        <label className="m-2 text-2xl tracking-wide">
-          Added By User ID:
-          <input
-            type="text"
-            name="addedByUserId"
-            className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg w-1/4 text-lg"
-            onChange={(e) => setAddedByUserId(e.target.value)}
-          />
-        </label>
-        <label className="m-2 text-2xl tracking-wide">
-          Site Description:
-          <input
-            type="textbox"
-            name="siteDescription"
-            className="bg-gray-100 h-40 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg w-1/2"
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </label>
-        <input
-          type="submit"
-          value="Submit"
-          className="bg-gray-100 h-14 w-32 shadow-xl m-2 border-2 border-gray-400 rounded-lg"
-        />
-      </form>
-    </div>
+        </form>
+      </div>
+    </>
   )
 }
 
