@@ -12,7 +12,8 @@ interface MapOptions {
   mapId: string
 }
 
-const DEFAULT_CENTER = { lat: -41.293738, lng: 174.7783656665847 }
+const DEFAULT_CENTER = { lat: -41.289830130702704, lng: 174.76954279578203 }
+
 const DEFAULT_ZOOM = 13
 const mapId = 'fb0b50db61587e93'
 
