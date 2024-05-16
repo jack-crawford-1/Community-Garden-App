@@ -55,10 +55,10 @@ export const GoogleMaps = () => {
   useMapTextOverlay(map)
 
   return (
-    <div className="flex justify-center items-center w-full h-screen">
+    <div className="w-full h-full">
       <div
         ref={ref}
-        className="w-screen h-screen rounded-3xl border-4 border-gray-200 shadow-md"
+        className="w-full h-full border-4 border-gray-200 shadow-md"
       >
         {map && <MapMarker map={map} />}
       </div>
