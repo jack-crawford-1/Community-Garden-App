@@ -96,7 +96,6 @@ export default function LocationsPage({
             <div className="m-1">
               Added by user id: {location.addedByUserId}
             </div>
-            <p className="text-lg m-2">{location.description}</p>
             <div className="text-md mt-2 mb-4"></div>
           </div>
           <div className="w-full flex flex-row ">
