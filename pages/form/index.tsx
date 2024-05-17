@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import '../../src/app/styles/globals.css'
 import { useRouter } from 'next/router'
+import { useSession } from 'next-auth/react'
 
 function AddSiteForm() {
   const router = useRouter()
@@ -11,6 +12,7 @@ function AddSiteForm() {
   const [addedByUserId, setAddedByUserId] = useState('')
   const [file, setFile] = useState<File | null>(null)
   const [message, setMessage] = useState('')
+  const { data: session } = useSession()
 
   useEffect(() => {
     if (lat && lng) {
@@ -42,7 +44,8 @@ function AddSiteForm() {
     formData.append('lng', lng as string)
     formData.append('address', address)
     formData.append('description', description)
-    formData.append('addedByUserId', addedByUserId)
+    formData.append('addedByUserId', session?.user?.name || '')
+
     if (file) {
       formData.append('file', file)
     }
@@ -110,13 +113,13 @@ function AddSiteForm() {
               />
             </label>
             <label className="m-2 text-2xl tracking-wide">
-              Added By User ID:
+              Added By User:
               <input
                 type="text"
                 name="addedByUserId"
-                placeholder="Will be auto-generated in future"
+                value={session?.user?.name || ''}
+                readOnly
                 className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full text-lg min-h-10"
-                onChange={(e) => setAddedByUserId(e.target.value)}
               />
             </label>
             <label className="m-2 text-2xl tracking-wide">
