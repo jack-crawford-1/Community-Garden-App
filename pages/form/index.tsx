@@ -2,7 +2,9 @@
 import { useEffect, useState } from 'react'
 import '../../src/app/styles/globals.css'
 import { useRouter } from 'next/router'
-import { useSession } from 'next-auth/react'
+import IfAuthenticated from '../../src/app/components/auth/IfAuthenticated'
+import IfNotAuthenticated from '../../src/app/components/auth/IfNotAuthenticated'
+import { signIn, useSession } from 'next-auth/react'
 
 function AddSiteForm() {
   const router = useRouter()
@@ -69,15 +71,34 @@ function AddSiteForm() {
   }
 
   return (
-    <>
-      <div className="h-screen">
+    <div className="h-screen">
+      <IfNotAuthenticated>
+        <div className="flex items-center justify-center h-full">
+          <p className="text-2xl m-3">sign in to add a new site.</p>
+
+          <div className="space-x-4">
+            <button
+              className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
+              onClick={() => signIn('github')}
+            >
+              Sign in with GitHub
+            </button>
+            <button
+              className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+              onClick={() => signIn('google')}
+            >
+              Sign in with Google
+            </button>
+          </div>
+        </div>
+      </IfNotAuthenticated>
+      <IfAuthenticated>
         <div>
           {message && (
             <div className="absolute top-0 right-0 p-10 bg-green-300">
               {message}
             </div>
           )}
-
           <form
             onSubmit={handleSubmit}
             className="flex flex-col h-screen bg-white p-10 justify-center border-2 border-red-300"
@@ -148,8 +169,8 @@ function AddSiteForm() {
             />
           </form>
         </div>
-      </div>
-    </>
+      </IfAuthenticated>
+    </div>
   )
 }
 

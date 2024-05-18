@@ -3,13 +3,15 @@ import prisma from '../../src/app/components/prismaClient/prisma'
 import '../../src/app/styles/globals.css'
 import Link from 'next/link'
 import Image from 'next/image'
+import { useSession } from 'next-auth/react'
+
 interface Coords {
   id: number
   lat: string
   lng: string
   address: string
   description: string
-  addedByUserId: number
+  addedByUserId: string
   imageUrl: string
 }
 export async function getServerSideProps() {
@@ -27,6 +29,7 @@ export default function LocationsPage({
   coordinates: Coords[]
 }) {
   const router = useRouter()
+  const { data: session } = useSession()
   const handleDelete = async (id: number) => {
     const confirmation = confirm(
       'Are you sure you want to delete this location?'
@@ -108,20 +111,22 @@ export default function LocationsPage({
             />
           </div>
 
-          <span className=" flex  flex-row align-center m-2 md:m-5">
-            <button
-              className="bg-red-300 text-white px-4 py-2 rounded m-1"
-              onClick={() => handleDelete(location.id)}
-            >
-              Delete
-            </button>
-            <button
-              className="bg-blue-300 text-white px-4 py-2 rounded m-1"
-              onClick={() => handleEdit(location.id)}
-            >
-              Edit
-            </button>
-          </span>
+          {session && session.user?.name === location.addedByUserId && (
+            <span className="flex flex-row align-center m-2 md:m-5">
+              <button
+                className="bg-red-300 text-white px-4 py-2 rounded m-1"
+                onClick={() => handleDelete(location.id)}
+              >
+                Delete
+              </button>
+              <button
+                className="bg-blue-300 text-white px-4 py-2 rounded m-1"
+                onClick={() => handleEdit(location.id)}
+              >
+                Edit
+              </button>
+            </span>
+          )}
         </div>
       ))}
     </div>
