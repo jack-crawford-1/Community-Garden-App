@@ -5,7 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useSession } from 'next-auth/react'
 
-interface Coords {
+interface Location {
   id: number
   lat: string
   lng: string
@@ -26,7 +26,7 @@ export async function getServerSideProps() {
 export default function LocationsPage({
   coordinates,
 }: {
-  coordinates: Coords[]
+  coordinates: Location[]
 }) {
   const router = useRouter()
   const { data: session } = useSession()

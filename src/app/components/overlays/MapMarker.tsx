@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 
 interface Location {
   id: number
-  lat: number
-  lng: number
+  lat: string
+  lng: string
+  address: string
   description: string
-  link: string
+  addedByUserId: string
+  imageUrl: string
 }
 
 interface MapMarkerProps {
@@ -40,15 +42,21 @@ const MapMarker = ({ map }: MapMarkerProps) => {
     if (map && locations.length > 0) {
       locations.forEach((location) => {
         const marker = new google.maps.Marker({
-          position: new google.maps.LatLng(location.lat, location.lng),
+          position: new google.maps.LatLng(
+            Number(location.lat),
+            Number(location.lng)
+          ),
           map: map,
           icon: icon,
         })
 
         marker.addListener('click', () => {
-          const contentString = `<div class="p-3 m-0 max-w-sm text-2xl text-gray-700   shadow-md">
-            <p class="mb-2">${location.description}</p>
-            <button class="text-white bg-blue-500 hover:bg-blue-700 rounded-lg text-md m-0 px-5 py-2.5 text-center" onclick="window.location.href='/locations/${location.id}'">More Info</button>
+          const contentString = `<div class="p-3 m-0 max-w-sm text-2xl text-gray-700 shadow-md">
+            <h2 class="text-xl font-bold">${location.address}</h2>
+            <p class="mb-2 text-sm">${location.description}</p>
+            <p class="mb-2 text-sm"> Added by: ${location.addedByUserId}</p>
+            <img src="${location.imageUrl}" class="w-full h-48 object-cover rounded-lg mb-4" />
+            <button class="text-white bg-green-500 hover:bg-green-700 rounded-lg text-sm m-0 px-4 py-2 text-center" onclick="window.location.href='/locations/${location.id}'">More Info</button>
           </div>`
           infoWindow.setContent(contentString)
           infoWindow.open(map, marker)
