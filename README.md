@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## Project Overview ##
+The Community Gardens App is designed to help users locate and add community garden sites. Users can click on the map to add new garden sites or click on existing markers to view details about the gardens. The app leverages various modern web technologies to provide a seamless and interactive user experience.
 
-First, run the development server:
+# Plan #
+The plan for the Community Gardens App includes the following steps:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Develop a user-friendly interface for interacting with the map.
+Implement authentication to allow users to add and manage garden sites.
+Integrate with Google Maps API for map functionalities.
+Use Prisma and SQLite for database management.
+Deploy the application using Next.js for server-side rendering.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Barriers
+Some of the barriers encountered during the development of the Community Gardens App include:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Handling asynchronous data fetching and state management in React.
+Ensuring responsive design across different devices.
+Managing authentication and user sessions securely.
+Integrating various APIs and ensuring smooth interaction between them.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+# Learnings
+Effective use of React hooks for state and side-effect management.
+Importance of responsive design and mobile-first approach.
+Best practices for integrating third-party APIs like Google Maps.
+Handling authentication and authorisation in a secure manner.
 
-## Learn More
+# Technology
+Next.js: Used for building the server-side rendered application.
+React: Used for building the user interface components.
+Prisma: Used as an ORM to interact with the database.
+SQLite: Used as the database for storing garden site information.
+NextAuth: Used for authentication and managing user sessions.
+Tailwind CSS: Used for styling the application.
+Google Maps API: Used for map functionalities and displaying markers.
 
-To learn more about Next.js, take a look at the following resources:
+# Future
+Future plans for the Community Gardens App include:
+Adding more detailed information and images for each garden site.
+Implementing user reviews and ratings for garden sites.
+Enhancing the search functionality to filter garden sites based on various criteria.
+Expanding the app to support multiple languages.
+Integrating social media sharing features to promote community gardens.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+![alt text](image.png)
 
-## Deploy on Vercel
+![alt text](image-1.png)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![alt text](image-2.png)
