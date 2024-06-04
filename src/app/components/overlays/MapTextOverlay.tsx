@@ -15,14 +15,16 @@ export function useMapTextOverlay(map: google.maps.Map | null) {
       myTitle.style.position = 'relative'
 
       myTitle.innerHTML = `
-        <h1 style="font-weight: 600; text-align: center; font-size: 1.5em; margin-bottom: 10px;">
-          Community Gardens App
-        </h1>
-        <p>Click the map to add a new community garden site or click on the leaf marker to view details for existing sites.</p>
-        <br/>
-        <p>This app was built with NextJS, Next Router, React, TypeScript, NextAuth, Google Maps API, Multer, Prisma, SQLite.</p>
-        <button id="closeOverlay" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.2em; cursor: pointer;">&times;</button>
-      `
+      <h1 style="font-weight: 600; text-align: center; font-size: 1.5em; margin-bottom: 10px;">
+        Community Gardens App
+      </h1>
+      <p>Click the map to add a new community garden site or click on the leaf marker to view details for existing sites.</p>
+      <br/>
+    
+      <button id="closeOverlay" style="position: absolute; top: 10px; right: 10px; background: none; border: none; font-size: 1.2em; cursor: pointer;">&times;</button>
+      
+
+    `
 
       const myTextDiv = document.createElement('div')
       myTextDiv.style.width = 'fit-content'

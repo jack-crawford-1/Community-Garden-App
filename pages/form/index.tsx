@@ -71,11 +71,10 @@ function AddSiteForm() {
   }
 
   return (
-    <div className="h-screen">
+    <div className="h-screen flex items-center justify-center">
       <IfNotAuthenticated>
         <div className="flex items-center justify-center h-full">
-          <p className="text-2xl m-3">sign in to add a new site.</p>
-
+          <p className="text-2xl m-3">Sign in to add a new site.</p>
           <div className="space-x-4">
             <button
               className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
@@ -93,80 +92,77 @@ function AddSiteForm() {
         </div>
       </IfNotAuthenticated>
       <IfAuthenticated>
-        <div>
+        <div className="w-full max-w-lg p-8 bg-white shadow-lg rounded-lg border-2 border-gray-300">
           {message && (
-            <div className="absolute top-0 right-0 p-10 bg-green-300">
+            <div className="absolute top-0 right-0 p-4 bg-green-300">
               {message}
             </div>
           )}
-          <form
-            onSubmit={handleSubmit}
-            className="flex flex-col h-screen bg-white p-10 justify-center border-2 border-red-300"
-          >
-            <label className="m-2 text-2xl tracking-wide">
+          <form onSubmit={handleSubmit} className="flex flex-col">
+            <label className="mb-4 text-lg font-medium">
               Site Address:
               <input
                 type="text"
                 name="siteAddress"
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
-                className="bg-gray-100 h-10 shadow-xl m-2 ml-10 border-2 border-gray-400 rounded-lg p-3 md:w-1/2 w-full text-lg min-h-10"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
               />
             </label>
-            <label className="m-2 text-2xl tracking-wide">
+            <label className="mb-4 text-lg font-medium">
               Latitude:
               <input
                 type="text"
-                name="siteName"
+                name="latitude"
                 value={lat || ''}
                 readOnly
-                className="bg-gray-100 h-10 shadow-xl ml-10 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full p-3 text-lg min-h-10"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
               />
             </label>
-            <label className="m-2 text-2xl tracking-wide">
+            <label className="mb-4 text-lg font-medium">
               Longitude:
               <input
                 type="text"
-                name="siteName"
+                name="longitude"
                 value={lng || ''}
                 readOnly
-                className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full text-lg min-h-10"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
               />
             </label>
-            <label className="m-2 text-2xl tracking-wide">
+            <label className="mb-4 text-lg font-medium">
               Added By User:
               <input
                 type="text"
                 name="addedByUserId"
                 value={session?.user?.name || ''}
                 readOnly
-                className="bg-gray-100 h-10 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full text-lg min-h-10"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
               />
             </label>
-            <label className="m-2 text-2xl tracking-wide">
+            <label className="mb-4 text-lg font-medium">
               Site Description:
-              <input
-                type="textbox"
+              <textarea
                 name="siteDescription"
                 placeholder="Add a description of the site here..."
-                className="bg-gray-100 h-40 shadow-xl ml-10 p-3 m-2 border-2 border-gray-400 rounded-lg md:w-1/2 w-full"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
                 onChange={(e) => setDescription(e.target.value)}
-              />
+              ></textarea>
             </label>
-            <label className="m-2 text-lg w-full min-h-10">
+            <label className="mb-4 text-lg font-medium">
               Upload Image:
               <input
                 type="file"
                 name="file"
                 onChange={handleFileChange}
-                className="bg-gray-100 h-10 shadow-xl m-10 p-3 border-2 border-gray-400 rounded-lg md:w-1/2 w-full min-h-10"
+                className="w-full p-2 mt-2 bg-gray-100 border-2 border-gray-300 rounded-lg shadow-sm"
               />
             </label>
-            <input
+            <button
               type="submit"
-              value="Submit"
-              className="bg-gray-100 w-64 shadow-xl m-2 border-2 border-gray-400 rounded-lg text-xl h-fit min-h-10 mt-10 hover:bg-gray-200 hover:border-blue-500"
-            />
+              className="w-full py-2 mt-4 text-white bg-blue-500 rounded-lg hover:bg-blue-600"
+            >
+              Submit
+            </button>
           </form>
         </div>
       </IfAuthenticated>

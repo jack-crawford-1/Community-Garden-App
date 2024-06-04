@@ -9,7 +9,7 @@ export default function LoginButton() {
   const { data: session } = useSession()
 
   return (
-    <div className="relative flex items-center p-2 bg-white shadow-md">
+    <div className="flex items-center p-2 bg-white">
       <IfAuthenticated>
         <div className="flex items-center space-x-4">
           {session && (
@@ -26,27 +26,27 @@ export default function LoginButton() {
               </span>
             </>
           )}
+          <button
+            className="bg-red-400 text-white py-1 px-3 rounded hover:bg-red-600"
+            onClick={() => signOut()}
+          >
+            Sign out
+          </button>
         </div>
-        <button
-          className="absolute top-4 right-4 bg-red-400 text-white py-1 px-3 rounded hover:bg-red-600"
-          onClick={() => signOut()}
-        >
-          Sign out
-        </button>
       </IfAuthenticated>
       <IfNotAuthenticated>
-        <div className="space-x-4">
+        <div className="flex space-x-4">
           <button
-            className="bg-blue-500 text-white py-1 px-3 rounded hover:bg-blue-600"
+            className="bg-blue-100 text-blue-800 py-1 px-3 border-blue-800 border-4 rounded hover:bg-blue-600 hover:text-white"
             onClick={() => signIn('github')}
           >
-            Sign in with GitHub
+            GitHub Sign In
           </button>
           <button
-            className="bg-red-500 text-white py-1 px-3 rounded hover:bg-red-600"
+            className="bg-blue-100 text-blue-800 py-1 px-3 border-blue-800 border-4 rounded hover:bg-blue-600 hover:text-white"
             onClick={() => signIn('google')}
           >
-            Sign in with Google
+            Google Sign In
           </button>
         </div>
       </IfNotAuthenticated>

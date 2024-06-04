@@ -44,7 +44,7 @@ export const GoogleMaps = () => {
       map.addListener('click', (e: google.maps.MapMouseEvent) => {
         const latLng = e.latLng.toJSON()
         infoWindow.setContent(
-          `<button class="text-white bg-green-500 hover:bg-green-700 rounded-lg text-xl m-0 px-5 py-2.5 text-center" onclick="window.location.href='./form?lat=${latLng.lat}&lng=${latLng.lng}'">Add community garden site</button>`
+          `<button class="text-green-100 font-bold bg-green-700 hover:bg-green-100 hover:text-green-700 hover:border-4 hover:border-green-700 border-4 hover:border-green-700 rounded text-xl m-0 px-5 py-2.5 text-center" onclick="window.location.href='./form?lat=${latLng.lat}&lng=${latLng.lng}'">Add community garden site</button>`
         )
         infoWindow.setPosition(latLng || DEFAULT_CENTER)
         infoWindow.open(map)
