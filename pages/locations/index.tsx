@@ -1,39 +1,42 @@
-import { useRouter } from 'next/router'
-import prisma from '../../src/app/components/prismaClient/prisma'
-import '../../src/app/styles/globals.css'
-import Link from 'next/link'
-import Image from 'next/image'
-import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router';
+import prisma from '../../src/app/components/prismaClient/prisma';
+import '../../src/app/styles/globals.css';
+import Link from 'next/link';
+import Image from 'next/image';
+import { useSession } from 'next-auth/react';
 
 interface Location {
-  id: number
-  lat: string
-  lng: string
-  address: string
-  description: string
-  addedByUserId: string
-  imageUrl: string
+  id: number;
+  lat: string;
+  lng: string;
+  address: string;
+  description: string;
+  addedByUserId: string;
+  imageUrl: string;
 }
+
 export async function getServerSideProps() {
-  const coordinates = await prisma.coords.findMany()
-  await prisma.$disconnect()
+  const coordinates = await prisma.coords.findMany();
+  await prisma.$disconnect();
   return {
     props: {
       coordinates: JSON.parse(JSON.stringify(coordinates)),
     },
-  }
+  };
 }
+
 export default function LocationsPage({
   coordinates,
 }: {
-  coordinates: Location[]
+  coordinates: Location[];
 }) {
-  const router = useRouter()
-  const { data: session } = useSession()
+  const router = useRouter();
+  const { data: session } = useSession();
+
   const handleDelete = async (id: number) => {
     const confirmation = confirm(
       'Are you sure you want to delete this location?'
-    )
+    );
     if (confirmation) {
       try {
         const response = await fetch('/api/deleteLocation', {
@@ -42,22 +45,23 @@ export default function LocationsPage({
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({ id }),
-        })
+        });
         if (response.ok) {
-          alert('Location deleted successfully')
-          router.reload()
+          alert('Location deleted successfully');
+          router.reload();
         } else {
-          throw new Error('Failed to delete the location')
+          throw new Error('Failed to delete the location');
         }
       } catch (error) {
-        console.error('Error:', error)
-        alert('Error deleting location')
+        console.error('Error:', error);
+        alert('Error deleting location');
       }
     }
-  }
+  };
+
   const handleEdit = async (id: number) => {
-    const newAddress = prompt('Enter a new address:')
-    const newDescription = prompt('Enter a new description:')
+    const newAddress = prompt('Enter a new address:');
+    const newDescription = prompt('Enter a new description:');
     if (newAddress && newDescription) {
       try {
         const response = await fetch('/api/editLocation', {
@@ -70,23 +74,27 @@ export default function LocationsPage({
             address: newAddress,
             description: newDescription,
           }),
-        })
+        });
         if (response.ok) {
-          alert('Location updated successfully')
-          router.reload()
+          alert('Location updated successfully');
+          router.reload();
         } else {
-          throw new Error('Failed to update the location')
+          throw new Error('Failed to update the location');
         }
       } catch (error) {
-        console.error('Error:', error)
-        alert('Error updating location')
+        console.error('Error:', error);
+        alert('Error updating location');
       }
     }
-  }
-  const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
+  };
+
+  const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY;
 
   return (
-    <div className="bg-gray-100 min-h-screen flex flex-col items-center md:p-10 p-2">
+    <div className="bg-slate-200 min-h-screen flex flex-col items-center md:p-10 p-2">
+      <Link href="/">
+        <div>Home</div>
+      </Link>
       {coordinates.map((location) => (
         <div
           key={location.id}
@@ -130,5 +138,5 @@ export default function LocationsPage({
         </div>
       ))}
     </div>
-  )
+  );
 }
