@@ -24,8 +24,6 @@ Enhancing the search functionality to filter garden sites based on various crite
 Integrating social media sharing features to promote community gardens.
 ##
 
-![alt text](image.png)
-##
-![alt text](image-1.png)
-##
-![alt text](image-2.png)
+![alt text](https://jackcrawford.co.nz/_next/image?url=%2Fproject%2Fgardenmap.png&w=828&q=75)
+![alt text](https://jackcrawford.co.nz/_next/image?url=%2Fproject%2Fgm1.png&w=640&q=75)
+![alt text](https://jackcrawford.co.nz/_next/image?url=%2Fproject%2Fgm2.png&w=640&q=75)

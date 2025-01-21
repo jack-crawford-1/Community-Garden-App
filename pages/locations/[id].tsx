@@ -1,37 +1,90 @@
-'use client'
+'use client';
 
-import '../../src/app/styles/globals.css'
-import prisma from '../../src/app/components/prismaClient/prisma'
-import Link from 'next/link'
-import Image from 'next/image'
+import '../../src/app/styles/globals.css';
+import prisma from '../../src/app/components/prismaClient/prisma';
+import Link from 'next/link';
+import Image from 'next/image';
+import LoginButton from '@/app/components/auth/LoginButton';
 
 interface Coords {
-  id: number
-  lat: string
-  lng: string
-  address: string
-  description: string
-  imageUrl: string
-  addedByUserId: number
-  mapId: string
+  id: number;
+  lat: string;
+  lng: string;
+  address: string;
+  description: string;
+  imageUrl: string;
+  addedByUserId: number;
+  mapId: string;
 }
 
-export async function getServerSideProps(context: { params: any }) {
-  const { params } = context
-  const id = parseInt(params.id, 10)
-  const location = await prisma.coords.findUnique({
-    where: {
-      id: id,
-    },
-  })
+// export async function getServerSideProps(context: { params: any }) {
+//   const { params } = context;
+//   const id = parseInt(params.id, 10);
+//   const location = await prisma.coords.findUnique({
+//     where: {
+//       id: id,
+//     },
+//   });
 
-  await prisma.$disconnect()
+//   await prisma.$disconnect();
+
+//   return {
+//     props: {
+//       location: location ? JSON.parse(JSON.stringify(location)) : null,
+//     },
+//   };
+// }
+
+export async function getServerSideProps(context: { params: any }) {
+  const { id } = context.params;
+
+  if (id.startsWith('dummy-')) {
+    const index = parseInt(id.replace('dummy-', ''), 10);
+    if (isNaN(index)) {
+      return { notFound: true };
+    }
+    try {
+      const response = await fetch('http://localhost:3000/dummy.geojson');
+      const dummyLocations = await response.json();
+
+      const location = dummyLocations[index];
+      if (!location) {
+        return { notFound: true };
+      }
+
+      return {
+        props: { location },
+      };
+    } catch (error) {
+      console.error('Failed to load dummy locations:', error);
+      return { notFound: true };
+    }
+  }
+
+  const numericId = parseInt(id, 10);
+  if (isNaN(numericId)) {
+    return { notFound: true };
+  }
+
+  let location = await prisma.coords.findUnique({
+    where: { id: numericId },
+  });
+
+  await prisma.$disconnect();
+
+  if (!location) {
+    return { notFound: true };
+  }
 
   return {
     props: {
-      location: location ? JSON.parse(JSON.stringify(location)) : null,
+      location: {
+        ...location,
+        createdAt: location.createdAt.toISOString(),
+        updatedAt: location.updatedAt.toISOString(),
+      },
     },
-  }
+  };
 }
 
 export default function LocationPage({ location }: { location: Coords }) {
@@ -40,57 +93,123 @@ export default function LocationPage({ location }: { location: Coords }) {
       <div className="bg-red-100 text-red-700 border-4 rounded-xl border-red-700 w-screen md:w-1/2 p-5 m-4 text-xl">
         Location not found
       </div>
-    )
+    );
   }
-  const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY
+  const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY;
+
+  const dummyLocation = {
+    ownership: 'Council-owned',
+    accessibility:
+      'Accessible by public transport, on-street parking available.',
+    facilities: 'Nearby shops, water access, and public restrooms.',
+    history:
+      'Previously a vacant lot, recently proposed for community garden use.',
+  };
 
   return (
-    <div className="outer container flex md:flex-row flex-col ">
-      <div className="topContainer flex flex-col justify-center items-center">
-        <div className="h1 text-4xl md:m-3 pt-5 pb-4 text-center w-4/5 md:w-full">
-          {location.address}
-        </div>
-        <div className="addedby text-center text-md">
-          Added By: {location.addedByUserId}
-        </div>
-        <div className="maintext justify-center content-center md:text-left text-center md:w-2/3 flex-wrap md:m-10 m-6">
-          {location.description}
-        </div>
+    <>
+      <div className="flex flex-row items-center justify-between p-2 pl-8 pr-5 bg-white shadow-md">
+        <Link href="/">
+          <button className="bg-green-600 hover:bg-green-500 text-white text-xl font-semibold py-2 px-4 rounded-lg shadow-lg transition-all">
+            🌱 <span className="pr-5"></span>Map
+          </button>
+        </Link>
+        <LoginButton />
+      </div>
+      <div className="bg-white p-20">
+        <div className="max-w-3xl lg:max-w-5xl mx-auto px-6 py-10 bg-gray-50 rounded-lg  border-green-600 shadow-lg">
+          <h1 className="text-4xl font-bold text-center mb-3">
+            {location.address}
+          </h1>
 
-        <div className="imgMapContainer flex flex-col md:flex-row md:pl-0  m-0 justify-center w-4/5">
-          <div className="image md:w-3/4 md:m-5 m-2 ">
-            <Image
-              src={location.imageUrl}
-              alt={'imageurl'}
-              width={700}
-              height={700}
-              style={{ borderRadius: '0.5rem' }}
-            />
-          </div>
-          <div className="map md:w-5/6 w-full m-0 mt-5 flex-row md:m-5">
-            <iframe
-              width="100%"
-              height="100%"
-              style={{ border: 0, borderRadius: '0.5rem' }}
-              loading="lazy"
-              allowFullScreen
-              src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${location.lat},${location.lng}&zoom=18&maptype=satellite`}
-            ></iframe>
-          </div>
-        </div>
-        <div className="flex flex-row md:m-5 ml-10 text-left md:justify-start">
-          <div className="lat md:text-lg text-center m-2">
-            Latitude: {location.lat}
-          </div>
-          <div className="Long md:text-lg text-center m-2">
-            Longitude: {location.lng}
-          </div>
-        </div>
+          <p className="text-center text-gray-600">
+            Added By:{' '}
+            <span className="font-semibold">{location.addedByUserId}</span>
+          </p>
 
-        <div className=" md:p-3 bg-green-600 rounded-lg text-white md:text-lg md:hover:text-gray-700 hover:bg-green-500 text-center md:mb-4 m-4 px-4 py-2 ">
-          <Link href={`/locations`}>See other gardens</Link>
+          <div className="border-4 border-green-600 mt-5"></div>
+
+          <div className="borde-bottom-2 border-green-600 pt-10"></div>
+
+          <p className="text-lg text-gray-700 text-center md:text-left mt-4 p-10">
+            {location.description}
+          </p>
+
+          {/* Image & Map Section */}
+          <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
+            {/* Location Image */}
+            <div className="w-full md:w-1/2 rounded-lg overflow-hidden shadow-lg h-80">
+              <Image
+                src={location.imageUrl}
+                alt="Location Image"
+                width={700}
+                height={500}
+                className="rounded-lg object-cover w-full h-full"
+              />
+            </div>
+
+            {/* Embedded Map */}
+            <div className="w-full md:w-1/2 h-80 rounded-lg overflow-hidden shadow-lg">
+              <iframe
+                width="100%"
+                height="100%"
+                className="rounded-lg"
+                loading="lazy"
+                allowFullScreen
+                src={`https://www.google.com/maps/embed/v1/view?key=${apiKey}&center=${location.lat},${location.lng}&zoom=18&maptype=satellite`}
+              ></iframe>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-center mt-6 text-lg text-gray-700">
+            <span className="mx-4">
+              📍 Latitude: <strong>{location.lat}</strong>
+            </span>
+            <span className="mx-4">
+              📍 Longitude: <strong>{location.lng}</strong>
+            </span>
+          </div>
+
+          {/* More Details Section */}
+          <div className="mt-10 p-6 ">
+            <h2 className="text-2xl font-semibold text-center mb-4">
+              More Details
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+              {/* Ownership */}
+              {dummyLocation.ownership && (
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-semibold text-lg">Ownership</h3>
+                  <p className="mt-2">{dummyLocation.ownership}</p>
+                </div>
+              )}
+
+              {/* Accessibility */}
+              {dummyLocation.accessibility && (
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-semibold text-lg">Accessibility</h3>
+                  <p className="mt-2">{dummyLocation.accessibility}</p>
+                </div>
+              )}
+
+              {/* Nearby Facilities */}
+              {dummyLocation.facilities && (
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-semibold text-lg">Nearby Facilities</h3>
+                  <p className="mt-2">{dummyLocation.facilities}</p>
+                </div>
+              )}
+
+              {dummyLocation.history && (
+                <div className="p-4 bg-white rounded-lg shadow">
+                  <h3 className="font-semibold text-lg">History</h3>
+                  <p className="mt-2">{dummyLocation.history}</p>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  )
+    </>
+  );
 }

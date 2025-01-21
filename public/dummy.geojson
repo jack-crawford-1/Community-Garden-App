@@ -1,0 +1,972 @@
+
+[
+  {
+    "lat": -36.811676,
+    "lng": 174.725731,
+    "address": "Random Location 1, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "16",
+    "imageUrl": "https://example.com/generated_image_1.jpg"
+  },
+  {
+    "lat": -43.999234,
+    "lng": 170.503474,
+    "address": "Random Location 2, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "17",
+    "imageUrl": "https://example.com/generated_image_2.jpg"
+  },
+  {
+    "lat": -45.917844,
+    "lng": 170.518948,
+    "address": "Random Location 3, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "18",
+    "imageUrl": "https://example.com/generated_image_3.jpg"
+  },
+  {
+    "lat": -37.745901,
+    "lng": 175.321154,
+    "address": "Random Location 4, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "19",
+    "imageUrl": "https://example.com/generated_image_4.jpg"
+  },
+  {
+    "lat": -46.396028,
+    "lng": 168.347754,
+    "address": "Random Location 5, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "20",
+    "imageUrl": "https://example.com/generated_image_5.jpg"
+  },
+  {
+    "lat": -46.439858,
+    "lng": 168.390458,
+    "address": "Random Location 6, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "21",
+    "imageUrl": "https://example.com/generated_image_6.jpg"
+  },
+  {
+    "lat": -36.845117,
+    "lng": 174.775397,
+    "address": "Random Location 7, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "22",
+    "imageUrl": "https://example.com/generated_image_7.jpg"
+  },
+  {
+    "lat": -41.247452,
+    "lng": 174.776922,
+    "address": "Random Location 8, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "23",
+    "imageUrl": "https://example.com/generated_image_8.jpg"
+  },
+  {
+    "lat": -39.448402,
+    "lng": 176.948495,
+    "address": "Random Location 9, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "24",
+    "imageUrl": "https://example.com/generated_image_9.jpg"
+  },
+  {
+    "lat": -36.887401,
+    "lng": 174.805586,
+    "address": "Random Location 10, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "25",
+    "imageUrl": "https://example.com/generated_image_10.jpg"
+  },
+  {
+    "lat": -36.884181,
+    "lng": 174.808109,
+    "address": "Random Location 11, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "26",
+    "imageUrl": "https://example.com/generated_image_11.jpg"
+  },
+  {
+    "lat": -43.985076,
+    "lng": 170.447102,
+    "address": "Random Location 12, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "27",
+    "imageUrl": "https://example.com/generated_image_12.jpg"
+  },
+  {
+    "lat": -36.895262,
+    "lng": 174.764832,
+    "address": "Random Location 13, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "28",
+    "imageUrl": "https://example.com/generated_image_13.jpg"
+  },
+  {
+    "lat": -41.24896,
+    "lng": 174.748877,
+    "address": "Random Location 14, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "29",
+    "imageUrl": "https://example.com/generated_image_14.jpg"
+  },
+  {
+    "lat": -41.271952,
+    "lng": 174.762793,
+    "address": "Random Location 15, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "30",
+    "imageUrl": "https://example.com/generated_image_15.jpg"
+  },
+  {
+    "lat": -36.870482,
+    "lng": 174.789735,
+    "address": "Random Location 16, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "31",
+    "imageUrl": "https://example.com/generated_image_16.jpg"
+  },
+  {
+    "lat": -46.380803,
+    "lng": 168.312258,
+    "address": "Random Location 17, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "32",
+    "imageUrl": "https://example.com/generated_image_17.jpg"
+  },
+  {
+    "lat": -46.40566,
+    "lng": 168.305205,
+    "address": "Random Location 18, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "33",
+    "imageUrl": "https://example.com/generated_image_18.jpg"
+  },
+  {
+    "lat": -37.763821,
+    "lng": 175.231932,
+    "address": "Random Location 19, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "34",
+    "imageUrl": "https://example.com/generated_image_19.jpg"
+  },
+  {
+    "lat": -36.878753,
+    "lng": 174.798514,
+    "address": "Random Location 20, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "35",
+    "imageUrl": "https://example.com/generated_image_20.jpg"
+  },
+  {
+    "lat": -39.465635,
+    "lng": 176.917556,
+    "address": "Random Location 21, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "36",
+    "imageUrl": "https://example.com/generated_image_21.jpg"
+  },
+  {
+    "lat": -39.46134,
+    "lng": 176.897699,
+    "address": "Random Location 22, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "37",
+    "imageUrl": "https://example.com/generated_image_22.jpg"
+  },
+  {
+    "lat": -46.390021,
+    "lng": 168.311776,
+    "address": "Random Location 23, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "38",
+    "imageUrl": "https://example.com/generated_image_23.jpg"
+  },
+  {
+    "lat": -45.841035,
+    "lng": 170.531535,
+    "address": "Random Location 24, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "39",
+    "imageUrl": "https://example.com/generated_image_24.jpg"
+  },
+  {
+    "lat": -43.492792,
+    "lng": 172.671385,
+    "address": "Random Location 25, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "40",
+    "imageUrl": "https://example.com/generated_image_25.jpg"
+  },
+  {
+    "lat": -36.856899,
+    "lng": 174.729234,
+    "address": "Random Location 26, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "41",
+    "imageUrl": "https://example.com/generated_image_26.jpg"
+  },
+  {
+    "lat": -36.869647,
+    "lng": 174.775194,
+    "address": "Random Location 27, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "42",
+    "imageUrl": "https://example.com/generated_image_27.jpg"
+  },
+  {
+    "lat": -39.451034,
+    "lng": 176.903259,
+    "address": "Random Location 28, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "43",
+    "imageUrl": "https://example.com/generated_image_28.jpg"
+  },
+  {
+    "lat": -45.857717,
+    "lng": 170.484683,
+    "address": "Random Location 29, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "44",
+    "imageUrl": "https://example.com/generated_image_29.jpg"
+  },
+  {
+    "lat": -43.494828,
+    "lng": 172.629856,
+    "address": "Random Location 30, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "45",
+    "imageUrl": "https://example.com/generated_image_30.jpg"
+  },
+  {
+    "lat": -46.432779,
+    "lng": 168.367961,
+    "address": "Random Location 31, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "46",
+    "imageUrl": "https://example.com/generated_image_31.jpg"
+  },
+  {
+    "lat": -37.788456,
+    "lng": 175.278175,
+    "address": "Random Location 32, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "47",
+    "imageUrl": "https://example.com/generated_image_32.jpg"
+  },
+  {
+    "lat": -44.045797,
+    "lng": 170.416502,
+    "address": "Random Location 33, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "48",
+    "imageUrl": "https://example.com/generated_image_33.jpg"
+  },
+  {
+    "lat": -39.532136,
+    "lng": 176.905436,
+    "address": "Random Location 34, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "49",
+    "imageUrl": "https://example.com/generated_image_34.jpg"
+  },
+  {
+    "lat": -44.000848,
+    "lng": 170.465434,
+    "address": "Random Location 35, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "50",
+    "imageUrl": "https://example.com/generated_image_35.jpg"
+  },
+  {
+    "lat": -43.573778,
+    "lng": 172.654164,
+    "address": "Random Location 36, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "51",
+    "imageUrl": "https://example.com/generated_image_36.jpg"
+  },
+  {
+    "lat": -45.897903,
+    "lng": 170.525805,
+    "address": "Random Location 37, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "52",
+    "imageUrl": "https://example.com/generated_image_37.jpg"
+  },
+  {
+    "lat": -41.325206,
+    "lng": 174.803734,
+    "address": "Random Location 38, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "53",
+    "imageUrl": "https://example.com/generated_image_38.jpg"
+  },
+  {
+    "lat": -46.413163,
+    "lng": 168.359763,
+    "address": "Random Location 39, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "54",
+    "imageUrl": "https://example.com/generated_image_39.jpg"
+  },
+  {
+    "lat": -41.323659,
+    "lng": 174.795601,
+    "address": "Random Location 40, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "55",
+    "imageUrl": "https://example.com/generated_image_40.jpg"
+  },
+  {
+    "lat": -46.405946,
+    "lng": 168.331122,
+    "address": "Random Location 41, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "56",
+    "imageUrl": "https://example.com/generated_image_41.jpg"
+  },
+  {
+    "lat": -44.019728,
+    "lng": 170.48857,
+    "address": "Random Location 42, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "57",
+    "imageUrl": "https://example.com/generated_image_42.jpg"
+  },
+  {
+    "lat": -46.417323,
+    "lng": 168.345895,
+    "address": "Random Location 43, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "58",
+    "imageUrl": "https://example.com/generated_image_43.jpg"
+  },
+  {
+    "lat": -39.475781,
+    "lng": 176.909626,
+    "address": "Random Location 44, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "59",
+    "imageUrl": "https://example.com/generated_image_44.jpg"
+  },
+  {
+    "lat": -45.844555,
+    "lng": 170.482712,
+    "address": "Random Location 45, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "60",
+    "imageUrl": "https://example.com/generated_image_45.jpg"
+  },
+  {
+    "lat": -43.526795,
+    "lng": 172.594594,
+    "address": "Random Location 46, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "61",
+    "imageUrl": "https://example.com/generated_image_46.jpg"
+  },
+  {
+    "lat": -39.482869,
+    "lng": 176.900781,
+    "address": "Random Location 47, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "62",
+    "imageUrl": "https://example.com/generated_image_47.jpg"
+  },
+  {
+    "lat": -46.393538,
+    "lng": 168.309096,
+    "address": "Random Location 48, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "63",
+    "imageUrl": "https://example.com/generated_image_48.jpg"
+  },
+  {
+    "lat": -39.472931,
+    "lng": 176.921264,
+    "address": "Random Location 49, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "64",
+    "imageUrl": "https://example.com/generated_image_49.jpg"
+  },
+  {
+    "lat": -39.535374,
+    "lng": 176.877163,
+    "address": "Random Location 50, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "65",
+    "imageUrl": "https://example.com/generated_image_50.jpg"
+  },
+  {
+    "lat": -36.812034,
+    "lng": 174.764708,
+    "address": "Random Location 51, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "66",
+    "imageUrl": "https://example.com/generated_image_51.jpg"
+  },
+  {
+    "lat": -41.268053,
+    "lng": 174.729919,
+    "address": "Random Location 52, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "67",
+    "imageUrl": "https://example.com/generated_image_52.jpg"
+  },
+  {
+    "lat": -37.834835,
+    "lng": 175.258537,
+    "address": "Random Location 53, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "68",
+    "imageUrl": "https://example.com/generated_image_53.jpg"
+  },
+  {
+    "lat": -43.497916,
+    "lng": 172.650491,
+    "address": "Random Location 54, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "69",
+    "imageUrl": "https://example.com/generated_image_54.jpg"
+  },
+  {
+    "lat": -43.963662,
+    "lng": 170.459431,
+    "address": "Random Location 55, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "70",
+    "imageUrl": "https://example.com/generated_image_55.jpg"
+  },
+  {
+    "lat": -37.818145,
+    "lng": 175.316941,
+    "address": "Random Location 56, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "71",
+    "imageUrl": "https://example.com/generated_image_56.jpg"
+  },
+  {
+    "lat": -37.775798,
+    "lng": 175.269629,
+    "address": "Random Location 57, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "72",
+    "imageUrl": "https://example.com/generated_image_57.jpg"
+  },
+  {
+    "lat": -46.455923,
+    "lng": 168.39056,
+    "address": "Random Location 58, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "73",
+    "imageUrl": "https://example.com/generated_image_58.jpg"
+  },
+  {
+    "lat": -37.780533,
+    "lng": 175.312696,
+    "address": "Random Location 59, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "74",
+    "imageUrl": "https://example.com/generated_image_59.jpg"
+  },
+  {
+    "lat": -44.00143,
+    "lng": 170.422812,
+    "address": "Random Location 60, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "75",
+    "imageUrl": "https://example.com/generated_image_60.jpg"
+  },
+  {
+    "lat": -41.247061,
+    "lng": 174.738137,
+    "address": "Random Location 61, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "76",
+    "imageUrl": "https://example.com/generated_image_61.jpg"
+  },
+  {
+    "lat": -45.883741,
+    "lng": 170.482319,
+    "address": "Random Location 62, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "77",
+    "imageUrl": "https://example.com/generated_image_62.jpg"
+  },
+  {
+    "lat": -45.911797,
+    "lng": 170.483872,
+    "address": "Random Location 63, Dunedin, New Zealand",
+    "description": "Generated location in Dunedin",
+    "addedByUserId": "78",
+    "imageUrl": "https://example.com/generated_image_63.jpg"
+  },
+  {
+    "lat": -41.28529,
+    "lng": 174.804116,
+    "address": "Random Location 64, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "79",
+    "imageUrl": "https://example.com/generated_image_64.jpg"
+  },
+  {
+    "lat": -46.446569,
+    "lng": 168.397874,
+    "address": "Random Location 65, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "80",
+    "imageUrl": "https://example.com/generated_image_65.jpg"
+  },
+  {
+    "lat": -41.293874,
+    "lng": 174.763924,
+    "address": "Random Location 66, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "81",
+    "imageUrl": "https://example.com/generated_image_66.jpg"
+  },
+  {
+    "lat": -43.496932,
+    "lng": 172.591568,
+    "address": "Random Location 67, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "82",
+    "imageUrl": "https://example.com/generated_image_67.jpg"
+  },
+  {
+    "lat": -41.308752,
+    "lng": 174.811571,
+    "address": "Random Location 68, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "83",
+    "imageUrl": "https://example.com/generated_image_68.jpg"
+  },
+  {
+    "lat": -36.825018,
+    "lng": 174.713407,
+    "address": "Random Location 69, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "84",
+    "imageUrl": "https://example.com/generated_image_69.jpg"
+  },
+  {
+    "lat": -46.372003,
+    "lng": 168.324687,
+    "address": "Random Location 70, Invercargill, New Zealand",
+    "description": "Generated location in Invercargill",
+    "addedByUserId": "85",
+    "imageUrl": "https://example.com/generated_image_70.jpg"
+  },
+  {
+    "lat": -43.959655,
+    "lng": 170.429123,
+    "address": "Random Location 71, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "86",
+    "imageUrl": "https://example.com/generated_image_71.jpg"
+  },
+  {
+    "lat": -41.241891,
+    "lng": 174.789677,
+    "address": "Random Location 72, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "87",
+    "imageUrl": "https://example.com/generated_image_72.jpg"
+  },
+  {
+    "lat": -37.777584,
+    "lng": 175.271576,
+    "address": "Random Location 73, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "88",
+    "imageUrl": "https://example.com/generated_image_73.jpg"
+  },
+  {
+    "lat": -43.523267,
+    "lng": 172.624213,
+    "address": "Random Location 74, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "89",
+    "imageUrl": "https://example.com/generated_image_74.jpg"
+  },
+  {
+    "lat": -43.564285,
+    "lng": 172.672858,
+    "address": "Random Location 75, Christchurch, New Zealand",
+    "description": "Generated location in Christchurch",
+    "addedByUserId": "90",
+    "imageUrl": "https://example.com/generated_image_75.jpg"
+  },
+  {
+    "lat": -36.851953,
+    "lng": 174.765796,
+    "address": "Random Location 76, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "91",
+    "imageUrl": "https://example.com/generated_image_76.jpg"
+  },
+  {
+    "lat": -43.99478,
+    "lng": 170.482786,
+    "address": "Random Location 77, Twizel, New Zealand",
+    "description": "Generated location in Twizel",
+    "addedByUserId": "92",
+    "imageUrl": "https://example.com/generated_image_77.jpg"
+  },
+  {
+    "lat": -37.768336,
+    "lng": 175.255064,
+    "address": "Random Location 78, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "93",
+    "imageUrl": "https://example.com/generated_image_78.jpg"
+  },
+  {
+    "lat": -37.762951,
+    "lng": 175.288751,
+    "address": "Random Location 79, Cambridge, New Zealand",
+    "description": "Generated location in Cambridge",
+    "addedByUserId": "94",
+    "imageUrl": "https://example.com/generated_image_79.jpg"
+  },
+  {
+    "lat": -39.498092,
+    "lng": 176.956549,
+    "address": "Random Location 80, Hastings, New Zealand",
+    "description": "Generated location in Hastings",
+    "addedByUserId": "95",
+    "imageUrl": "https://example.com/generated_image_80.jpg"
+  },
+  {
+    "lat": -41.315913,
+    "lng": 174.739025,
+    "address": "Random Location 81, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "96",
+    "imageUrl": "https://example.com/generated_image_81.jpg"
+  },
+  {
+    "lat": -41.303527,
+    "lng": 174.802567,
+    "address": "Random Location 82, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "97",
+    "imageUrl": "https://example.com/generated_image_82.jpg"
+  },
+  {
+    "lat": -36.819006,
+    "lng": 174.734315,
+    "address": "Random Location 83, Auckland, New Zealand",
+    "description": "Generated location in Auckland",
+    "addedByUserId": "98",
+    "imageUrl": "https://example.com/generated_image_83.jpg"
+  },
+  {
+    "lat": -41.23812,
+    "lng": 174.774215,
+    "address": "Random Location 84, Wellington, New Zealand",
+    "description": "Generated location in Wellington",
+    "addedByUserId": "99",
+    "imageUrl": "https://example.com/generated_image_84.jpg"
+  }
+,
+    {
+      "lat": -36.678856,
+      "lng": 174.70788,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 43,
+      "imageUrl": "https://example.com/image_47.jpg"
+    },
+    {
+      "lat": -36.681573,
+      "lng": 174.602564,
+      "address": "Christchurch",
+      "description": "New place in Christchurch",
+      "addedByUserId": 54,
+      "imageUrl": "https://example.com/image_33.jpg"
+    },
+    {
+      "lat": -36.876509,
+      "lng": 174.663175,
+      "address": "Christchurch",
+      "description": "Random Wellington spot",
+      "addedByUserId": 23,
+      "imageUrl": "https://example.com/image_74.jpg"
+    },
+    {
+      "lat": -36.690193,
+      "lng": 174.345158,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 34,
+      "imageUrl": "https://example.com/image_56.jpg"
+    },
+    {
+      "lat": -36.624585,
+      "lng": 174.743827,
+      "address": "Wellington",
+      "description": "New place in Christchurch",
+      "addedByUserId": 100,
+      "imageUrl": "https://example.com/image_55.jpg"
+    },
+    {
+      "lat": -36.819491,
+      "lng": 174.874594,
+      "address": "Wellington",
+      "description": "Random Wellington spot",
+      "addedByUserId": 77,
+      "imageUrl": "https://example.com/image_79.jpg"
+    },
+    {
+      "lat": -36.503294,
+      "lng": 174.258114,
+      "address": "Christchurch",
+      "description": "New place in Christchurch",
+      "addedByUserId": 82,
+      "imageUrl": "https://example.com/image_25.jpg"
+    },
+    {
+      "lat": -36.127811,
+      "lng": 174.028423,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 54,
+      "imageUrl": "https://example.com/image_95.jpg"
+    },
+    {
+      "lat": -36.870193,
+      "lng": 174.266071,
+      "address": "Christchurch",
+      "description": "Generated in Auckland",
+      "addedByUserId": 86,
+      "imageUrl": "https://example.com/image_3.jpg"
+    },
+    {
+      "lat": -36.078014,
+      "lng": 174.062924,
+      "address": "Christchurch",
+      "description": "Generated in Auckland",
+      "addedByUserId": 23,
+      "imageUrl": "https://example.com/image_51.jpg"
+    },
+    {
+      "lat": -36.04212,
+      "lng": 174.697681,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 8,
+      "imageUrl": "https://example.com/image_74.jpg"
+    },
+    {
+      "lat": -36.582384,
+      "lng": 174.781805,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 63,
+      "imageUrl": "https://example.com/image_96.jpg"
+    },
+    {
+      "lat": -36.846842,
+      "lng": 174.647584,
+      "address": "Auckland",
+      "description": "Generated in Auckland",
+      "addedByUserId": 68,
+      "imageUrl": "https://example.com/image_58.jpg"
+    },
+    {
+      "lat": -36.450357,
+      "lng": 174.479818,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 24,
+      "imageUrl": "https://example.com/image_71.jpg"
+    },
+    {
+      "lat": -36.116942,
+      "lng": 174.271217,
+      "address": "Wellington",
+      "description": "Random Wellington spot",
+      "addedByUserId": 43,
+      "imageUrl": "https://example.com/image_49.jpg"
+    },
+    {
+      "lat": -36.872118,
+      "lng": 174.24236,
+      "address": "Auckland",
+      "description": "Generated in Auckland",
+      "addedByUserId": 69,
+      "imageUrl": "https://example.com/image_89.jpg"
+    },
+    {
+      "lat": -36.461027,
+      "lng": 174.249609,
+      "address": "Wellington",
+      "description": "New place in Christchurch",
+      "addedByUserId": 34,
+      "imageUrl": "https://example.com/image_50.jpg"
+    },
+    {
+      "lat": -36.086957,
+      "lng": 174.247336,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 95,
+      "imageUrl": "https://example.com/image_22.jpg"
+    },
+    {
+      "lat": -36.372807,
+      "lng": 174.987165,
+      "address": "Christchurch",
+      "description": "New place in Christchurch",
+      "addedByUserId": 11,
+      "imageUrl": "https://example.com/image_36.jpg"
+    },
+    {
+      "lat": -36.359931,
+      "lng": 174.137652,
+      "address": "Auckland",
+      "description": "New place in Christchurch",
+      "addedByUserId": 28,
+      "imageUrl": "https://example.com/image_36.jpg"
+    },
+    {
+      "lat": -36.96721,
+      "lng": 174.436651,
+      "address": "Auckland",
+      "description": "New place in Christchurch",
+      "addedByUserId": 13,
+      "imageUrl": "https://example.com/image_44.jpg"
+    },
+    {
+      "lat": -36.522039,
+      "lng": 174.55868,
+      "address": "Wellington",
+      "description": "Random Wellington spot",
+      "addedByUserId": 64,
+      "imageUrl": "https://example.com/image_80.jpg"
+    },
+    {
+      "lat": -36.932974,
+      "lng": 174.103618,
+      "address": "Wellington",
+      "description": "New place in Christchurch",
+      "addedByUserId": 54,
+      "imageUrl": "https://example.com/image_73.jpg"
+    },
+    {
+      "lat": -36.916475,
+      "lng": 174.770819,
+      "address": "Christchurch",
+      "description": "New place in Christchurch",
+      "addedByUserId": 21,
+      "imageUrl": "https://example.com/image_16.jpg"
+    },
+    {
+      "lat": -36.494851,
+      "lng": 174.409855,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 29,
+      "imageUrl": "https://example.com/image_75.jpg"
+    },
+    {
+      "lat": -36.501117,
+      "lng": 174.998086,
+      "address": "Auckland",
+      "description": "Generated in Auckland",
+      "addedByUserId": 47,
+      "imageUrl": "https://example.com/image_52.jpg"
+    },
+    {
+      "lat": -36.004672,
+      "lng": 174.628653,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 75,
+      "imageUrl": "https://example.com/image_84.jpg"
+    },
+    {
+      "lat": -36.673233,
+      "lng": 174.926172,
+      "address": "Christchurch",
+      "description": "New place in Christchurch",
+      "addedByUserId": 29,
+      "imageUrl": "https://example.com/image_18.jpg"
+    },
+    {
+      "lat": -36.333475,
+      "lng": 174.524103,
+      "address": "Auckland",
+      "description": "New place in Christchurch",
+      "addedByUserId": 4,
+      "imageUrl": "https://example.com/image_30.jpg"
+    },
+    {
+      "lat": -36.261796,
+      "lng": 174.154595,
+      "address": "Christchurch",
+      "description": "Generated in Auckland",
+      "addedByUserId": 94,
+      "imageUrl": "https://example.com/image_70.jpg"
+    },
+    {
+      "lat": -36.10258,
+      "lng": 174.380712,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 13,
+      "imageUrl": "https://example.com/image_67.jpg"
+    },
+    {
+      "lat": -36.5113,
+      "lng": 174.947941,
+      "address": "Auckland",
+      "description": "Random Wellington spot",
+      "addedByUserId": 83,
+      "imageUrl": "https://example.com/image_27.jpg"
+    },
+    {
+      "lat": -36.796548,
+      "lng": 174.0293,
+      "address": "Wellington",
+      "description": "New place in Christchurch",
+      "addedByUserId": 5,
+      "imageUrl": "https://example.com/image_74.jpg"
+    },
+    {
+      "lat": -36.722432,
+      "lng": 174.989255,
+      "address": "Wellington",
+      "description": "Generated in Auckland",
+      "addedByUserId": 72,
+      "imageUrl": "https://example.com/image_3.jpg"
+    },
+    {
+      "lat": -36.21912,
+      "lng": 174.618133,
+      "address": "Wellington",
+      "description": "New place in Christchurch",
+      "addedByUserId": 58,
+      "imageUrl": "https://example.com/image_4.jpg"
+    },
+    {
+      "lat": -36.607152,
+      "lng": 174.416995,
+      "address": "Wellington",
+      "description": "Random Wellington spot",
+      "addedByUserId": 14,
+      "imageUrl": "https://example.com/image_60.jpg"
+    },
+    {
+      "lat": -36.988378,
+      "lng": 174.425909,
+      "address": "Auckland",
+      "description": "New place in Christchurch",
+      "addedByUserId": 91,
+      "imageUrl": "https://example.com/image_35.jpg"
+    }
+  ]

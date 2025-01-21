@@ -1,12 +1,12 @@
-'use client'
+'use client';
 
-import { signIn, signOut, useSession } from 'next-auth/react'
-import IfAuthenticated from './IfAuthenticated'
-import IfNotAuthenticated from './IfNotAuthenticated'
-import Image from 'next/image'
+import { signIn, signOut, useSession } from 'next-auth/react';
+import IfAuthenticated from './IfAuthenticated';
+import IfNotAuthenticated from './IfNotAuthenticated';
+import Image from 'next/image';
 
 export default function LoginButton() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <div className="flex items-center p-2 bg-white">
@@ -27,7 +27,7 @@ export default function LoginButton() {
             </>
           )}
           <button
-            className="bg-red-400 text-white py-1 px-3 rounded hover:bg-red-600"
+            className="bg-gray-500 text-white text-white text-xl font-semibold py-2 px-4 rounded-lg hover:bg-red-600"
             onClick={() => signOut()}
           >
             Sign out
@@ -37,19 +37,13 @@ export default function LoginButton() {
       <IfNotAuthenticated>
         <div className="flex space-x-4">
           <button
-            className="bg-blue-100 text-blue-800 py-1 px-3 border-blue-800 border-4 rounded hover:bg-blue-600 hover:text-white"
-            onClick={() => signIn('github')}
-          >
-            GitHub Sign In
-          </button>
-          <button
-            className="bg-blue-100 text-blue-800 py-1 px-3 border-blue-800 border-4 rounded hover:bg-blue-600 hover:text-white"
+            className="bg-green-600 hover:bg-green-500 text-white text-xl font-semibold py-2 px-4 rounded-lg shadow-lg transition-all"
             onClick={() => signIn('google')}
           >
-            Google Sign In
+            Sign In
           </button>
         </div>
       </IfNotAuthenticated>
     </div>
-  )
+  );
 }
