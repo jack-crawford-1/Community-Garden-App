@@ -1,3 +1,5 @@
+'use client';
+
 import { MapComponent } from './components/map/MapComponent';
 import LoginButton from './components/auth/LoginButton';
 
