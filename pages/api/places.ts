@@ -1,16 +1,21 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 const cities = [
-  'Auckland',
   'Wellington',
-  'Christchurch',
-  'Hamilton',
-  'Dunedin',
-  'Tauranga',
-  'Napier',
-  'Palmerston North',
-  'Nelson',
-  'Rotorua',
+  'Petone',
+  'Wainuiomata',
+  'Eastbourne',
+  'Lower Hutt',
+  'Upper Hutt',
+  'Makara Beach',
+  'Porirua',
+  'Paraparaumu',
+  'Waikanae',
+  'Otaki',
+  'Levin',
+  'Masterton',
+  'Martinborough',
+  'South Featherston',
 ];
 
 export default async function handler(
@@ -28,13 +33,15 @@ export default async function handler(
   for (const city of cities) {
     try {
       const response = await fetch(
-        `https://maps.googleapis.com/maps/api/place/textsearch/json?query=community+garden+in+${encodeURIComponent(
+        `https://maps.googleapis.com/maps/api/place/textsearch/json?query=community+vegetable+garden+in+${encodeURIComponent(
           city
-        )}&key=${apiKey}`
+        )}&type=park&key=${apiKey}`
       );
       const data = await response.json();
       if (data.results) {
         allResults = [...allResults, ...data.results];
+        console.log(`Fetched ${data.results.length} places for ${city}`);
+        console.log(data.results);
       }
     } catch (error) {
       console.error(`Error fetching places for ${city}:`, error);

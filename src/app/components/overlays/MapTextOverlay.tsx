@@ -34,7 +34,10 @@ export function useMapTextOverlay(map: google.maps.Map | null) {
       <p style="font-weight: 400; text-align: center; font-size: 1.2em; line-height: 1.3; padding-left: 20px; padding-right: 20px;">
         Once signed in, click the map to add a new community garden or click on the leaf marker to view details for existing gardens.
       </p>
-       <p style="font-weight: 400; color: lightGray; text-align: center; font-size: 1em; line-height: 1.9; padding-top: 20px;">
+      <p style="font-weight: 400; text-align: center; font-size: 1.2em; line-height: 1.3; padding-left: 20px; padding-top: 10px; padding-right: 20px;">
+        Map bounds are currently set to Wellington, New Zealand.
+      </p>
+       <p style="font-weight: 400; color: lightGray; text-align: center; font-size: 1em; line-height: 1.9; padding-top: 10px;">
         Tap anywhere to close this overlay.
       </p>
     `;

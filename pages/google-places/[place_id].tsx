@@ -15,6 +15,15 @@ interface PlaceDetails {
 const apiKey = process.env.NEXT_PUBLIC_MAPS_API_KEY;
 
 const GooglePlaceDetails = () => {
+  const dummyLocation = {
+    ownership: 'Council-owned',
+    accessibility:
+      'Accessible by public transport, on-street parking available.',
+    facilities: 'Nearby shops, water access, and public restrooms.',
+    history:
+      'Previously a vacant lot, recently proposed for community garden use.',
+  };
+
   const router = useRouter();
   const { place_id } = router.query;
   const [place, setPlace] = useState<PlaceDetails | null>(null);
@@ -47,7 +56,7 @@ const GooglePlaceDetails = () => {
       <p className="text-gray-700">{place.formatted_address}</p>
       {place.rating && (
         <p className="text-sm mt-2">
-          ⭐ Rating: {place.rating} ({place.user_ratings_total} reviews)
+          Rating: {place.rating} ({place.user_ratings_total} reviews)
         </p>
       )}
       {place.website && (
@@ -81,6 +90,40 @@ const GooglePlaceDetails = () => {
           allowFullScreen
           src={`https://www.google.com/maps/embed/v1/place?key=${apiKey}&q=place_id:${place_id}`}
         ></iframe>
+        <div className="mt-10 p-6 ">
+          <h2 className="text-2xl font-semibold text-center mb-4">
+            More Details
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
+            {dummyLocation.ownership && (
+              <div className="p-4 bg-white rounded-lg shadow">
+                <h3 className="font-semibold text-lg">Ownership</h3>
+                <p className="mt-2">{dummyLocation.ownership}</p>
+              </div>
+            )}
+
+            {dummyLocation.accessibility && (
+              <div className="p-4 bg-white rounded-lg shadow">
+                <h3 className="font-semibold text-lg">Accessibility</h3>
+                <p className="mt-2">{dummyLocation.accessibility}</p>
+              </div>
+            )}
+
+            {dummyLocation.facilities && (
+              <div className="p-4 bg-white rounded-lg shadow">
+                <h3 className="font-semibold text-lg">Nearby Facilities</h3>
+                <p className="mt-2">{dummyLocation.facilities}</p>
+              </div>
+            )}
+
+            {dummyLocation.history && (
+              <div className="p-4 bg-white rounded-lg shadow">
+                <h3 className="font-semibold text-lg">History</h3>
+                <p className="mt-2">{dummyLocation.history}</p>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

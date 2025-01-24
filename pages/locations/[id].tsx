@@ -17,24 +17,6 @@ interface Coords {
   mapId: string;
 }
 
-// export async function getServerSideProps(context: { params: any }) {
-//   const { params } = context;
-//   const id = parseInt(params.id, 10);
-//   const location = await prisma.coords.findUnique({
-//     where: {
-//       id: id,
-//     },
-//   });
-
-//   await prisma.$disconnect();
-
-//   return {
-//     props: {
-//       location: location ? JSON.parse(JSON.stringify(location)) : null,
-//     },
-//   };
-// }
-
 export async function getServerSideProps(context: { params: any }) {
   const { id } = context.params;
 
@@ -135,9 +117,7 @@ export default function LocationPage({ location }: { location: Coords }) {
             {location.description}
           </p>
 
-          {/* Image & Map Section */}
           <div className="flex flex-col md:flex-row justify-center items-center gap-6 mt-8">
-            {/* Location Image */}
             <div className="w-full md:w-1/2 rounded-lg overflow-hidden shadow-lg h-80">
               <Image
                 src={location.imageUrl}
@@ -148,7 +128,6 @@ export default function LocationPage({ location }: { location: Coords }) {
               />
             </div>
 
-            {/* Embedded Map */}
             <div className="w-full md:w-1/2 h-80 rounded-lg overflow-hidden shadow-lg">
               <iframe
                 width="100%"
@@ -163,20 +142,18 @@ export default function LocationPage({ location }: { location: Coords }) {
 
           <div className="flex flex-col md:flex-row justify-center mt-6 text-lg text-gray-700">
             <span className="mx-4">
-              📍 Latitude: <strong>{location.lat}</strong>
+              Latitude: <strong>{location.lat}</strong>
             </span>
             <span className="mx-4">
-              📍 Longitude: <strong>{location.lng}</strong>
+              Longitude: <strong>{location.lng}</strong>
             </span>
           </div>
 
-          {/* More Details Section */}
           <div className="mt-10 p-6 ">
             <h2 className="text-2xl font-semibold text-center mb-4">
               More Details
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-gray-700">
-              {/* Ownership */}
               {dummyLocation.ownership && (
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-semibold text-lg">Ownership</h3>
@@ -184,7 +161,6 @@ export default function LocationPage({ location }: { location: Coords }) {
                 </div>
               )}
 
-              {/* Accessibility */}
               {dummyLocation.accessibility && (
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-semibold text-lg">Accessibility</h3>
@@ -192,7 +168,6 @@ export default function LocationPage({ location }: { location: Coords }) {
                 </div>
               )}
 
-              {/* Nearby Facilities */}
               {dummyLocation.facilities && (
                 <div className="p-4 bg-white rounded-lg shadow">
                   <h3 className="font-semibold text-lg">Nearby Facilities</h3>

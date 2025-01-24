@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import MapMarker from '../overlays/MapMarker';
-import { useMapTextOverlay } from '../overlays/MapTextOverlay';
+// import { useMapTextOverlay } from '../overlays/MapTextOverlay';
 
 interface MapOptions {
   center: google.maps.LatLngLiteral;
@@ -17,6 +17,13 @@ const DEFAULT_CENTER = { lat: -41.289830130702704, lng: 174.76954279578203 };
 const DEFAULT_ZOOM = 12;
 const mapId = process.env.NEXT_PUBLIC_MAPS_ID;
 
+const WELLINGTON_BOUNDS = {
+  north: -40.6,
+  south: -41.8,
+  west: 173.5,
+  east: 176.0,
+};
+
 export const GoogleMaps = () => {
   const ref = useRef<HTMLDivElement | null>(null);
   const [map, setMap] = useState<google.maps.Map | null>(null);
@@ -29,13 +36,16 @@ export const GoogleMaps = () => {
       const newMap = new window.google.maps.Map(ref.current, {
         center: DEFAULT_CENTER,
         zoom: DEFAULT_ZOOM,
-        minZoom: 5,
+        minZoom: 1,
         maxZoom: 20,
         mapId: mapId,
+        restriction: {
+          latLngBounds: WELLINGTON_BOUNDS,
+          strictBounds: false,
+        },
       } as MapOptions);
 
       const newInfoWindow = new google.maps.InfoWindow();
-      disableAutoPan: true;
       setMap(newMap);
       setInfoWindow(newInfoWindow);
     }
@@ -63,7 +73,7 @@ export const GoogleMaps = () => {
     }
   }, [map, infoWindow]);
 
-  useMapTextOverlay(map);
+  // useMapTextOverlay(map);
 
   return (
     <div className="w-full h-full ">

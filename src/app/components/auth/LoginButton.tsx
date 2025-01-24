@@ -22,12 +22,12 @@ export default function LoginButton() {
                 className="rounded-full border-2 border-gray-300"
               />
               <span className="text-gray-700 font-medium">
-                Signed in as: {session.user?.name}
+                signed in: {session.user?.name}
               </span>
             </>
           )}
           <button
-            className="bg-gray-500 text-white text-white text-xl font-semibold py-2 px-4 rounded-lg hover:bg-red-600"
+            className="bg-gray-500 text-white text-white text-sm font-semibold py-2 px-3 rounded-lg hover:bg-red-600"
             onClick={() => signOut()}
           >
             Sign out
@@ -37,7 +37,7 @@ export default function LoginButton() {
       <IfNotAuthenticated>
         <div className="flex space-x-4">
           <button
-            className="bg-green-600 hover:bg-green-500 text-white text-xl font-semibold py-2 px-4 rounded-lg shadow-lg transition-all"
+            className="bg-green-600 hover:bg-green-500 text-white text-sm font-semibold py-2 px-3 rounded-lg shadow-lg transition-all"
             onClick={() => signIn('google')}
           >
             Sign In
